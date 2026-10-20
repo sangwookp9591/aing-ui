@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "webmcp",
+  "title": "WebMCP",
+  "description": "공용 WebMCP 등록과 개발용 폴백",
+  "dependencies": [
+    "@aing/core@0.1.0"
+  ],
+  "files": [
+    {
+      "path": "registry/aing/lib/webmcp.ts",
+      "content": "\"use client\";\nimport { Children, isValidElement, type ReactNode } from \"react\";\nexport * from \"@aing/core/webmcp\";\nexport { useWebMCPTool, useWebMCPToolLog } from \"@aing/core/react\";\n\nexport function accessibleText(value: ReactNode): string {\n return Children.toArray(value).map(child => typeof child === \"string\" || typeof child === \"number\" ? String(child) : isValidElement<{children?: ReactNode}>(child) ? accessibleText(child.props.children) : \"\").join(\" \").replace(/\\s+/g, \" \").trim();\n}\n\nexport function optionValues(children: ReactNode): string[] {\n  return Children.toArray(children).flatMap(child => {\n    if (!isValidElement<{ value?: unknown; disabled?: boolean; children?: ReactNode }>(child)) return [];\n    return typeof child.props.value === \"string\" && !child.props.disabled ? [child.props.value] : optionValues(child.props.children);\n  });\n}\n",
+      "type": "registry:lib",
+      "target": "lib/webmcp.ts"
+    }
+  ],
+  "type": "registry:lib"
+}

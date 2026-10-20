@@ -1,0 +1,170 @@
+@layer aing {
+  .aing-dialog {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    gap: 24px;
+    width: min(448px, calc(100% - 32px));
+    max-height: 85dvh;
+    margin: auto;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--background);
+    color: var(--foreground);
+    box-shadow:
+      0 0 0 1px rgb(0 0 0 / 0.04),
+      0 20px 64px rgb(0 0 0 / 0.2);
+    overflow: auto;
+    opacity: 0;
+    translate: 0 8px;
+    scale: 0.97;
+    transition:
+      opacity 150ms ease-out,
+      translate 150ms var(--aing-spring),
+      scale 150ms var(--aing-spring),
+      display 150ms ease-out allow-discrete,
+      overlay 150ms ease-out allow-discrete;
+  }
+  .aing-dialog:not([open]) {
+    display: none;
+  }
+  .aing-dialog[open] {
+    opacity: 1;
+    translate: 0;
+    scale: 1;
+    transition-duration: 220ms;
+  }
+  .aing-dialog::backdrop {
+    background: var(--aing-backdrop);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition:
+      opacity 150ms ease-out,
+      display 150ms ease-out allow-discrete,
+      overlay 150ms ease-out allow-discrete;
+  }
+  .aing-dialog[open]::backdrop {
+    opacity: 1;
+    transition-duration: 220ms;
+  }
+  .aing-dialog-header {
+    position: sticky;
+    top: -24px;
+    z-index: 1;
+    display: grid;
+    gap: 8px;
+    padding-right: 24px;
+    background: var(--background);
+  }
+  .aing-dialog-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 28px;
+  }
+  .aing-dialog-description {
+    margin: 0;
+    color: var(--muted-foreground);
+    font-size: 13px;
+    line-height: 20px;
+  }
+  .aing-dialog-body {
+    min-height: 0;
+    overflow: auto;
+    border-block: 1px solid transparent;
+  }
+  .aing-dialog-body[data-scroll-start] {
+    border-top-color: var(--border);
+  }
+  .aing-dialog-body[data-scroll-end] {
+    border-bottom-color: var(--border);
+  }
+  .aing-dialog:has(> .aing-dialog-body) {
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    overflow: hidden;
+  }
+  .aing-dialog-footer {
+    position: sticky;
+    bottom: -24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+    background: var(--background);
+  }
+  .aing-dialog-footer button {
+    min-height: 44px;
+  }
+  .aing-dialog-x {
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--muted-foreground);
+    cursor: pointer;
+    transition: transform 160ms var(--aing-spring);
+  }
+  .aing-dialog-x:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--ring) 50%, transparent);
+    outline-offset: 0;
+    box-shadow: none;
+  }
+  .aing-dialog-x:active {
+    transform: scale(0.94);
+  }
+  @media (hover: hover) {
+    .aing-dialog-x:hover {
+      background: var(--muted);
+    }
+  }
+  @media (width <= 640px) {
+    .aing-dialog {
+      width: 100%;
+      max-width: none;
+      padding-bottom: max(24px, env(safe-area-inset-bottom) + 16px);
+      max-height: 90dvh;
+      margin: auto 0 0;
+      border-radius: 12px 12px 0 0;
+      translate: 0 24px;
+      scale: 1;
+    }
+    .aing-dialog[open] {
+      translate: 0;
+      scale: 1;
+    }
+  }
+  @starting-style {
+    .aing-dialog[open] {
+      opacity: 0;
+      translate: 0 8px;
+      scale: 0.97;
+    }
+    .aing-dialog[open]::backdrop {
+      opacity: 0;
+    }
+  }
+  @media (width <= 640px) {
+    @starting-style {
+      .aing-dialog[open] {
+        translate: 0 24px;
+        scale: 1;
+      }
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .aing-dialog,
+    .aing-dialog::backdrop,
+    .aing-dialog-x {
+      transition: none !important;
+    }
+  }
+}

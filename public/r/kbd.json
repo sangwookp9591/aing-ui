@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kbd",
+  "title": "Kbd",
+  "description": "키캡 진입과 hover 모션. 키 입력을 실행하지 않고 설명만 읽습니다.",
+  "dependencies": [
+    "motion@14.4.0"
+  ],
+  "registryDependencies": [
+    "http://localhost:3210/r/webmcp.json",
+    "http://localhost:3210/r/motion.json"
+  ],
+  "files": [
+    {
+      "path": "registry/aing/ui/kbd.tsx",
+      "content": "\"use client\";\nimport { useId, type ReactNode } from \"react\";\nimport { motion, type HTMLMotionProps } from \"motion/react\";\nimport { useAingMotion } from \"../lib/motion\";\nimport { accessibleText, result, toolName, useWebMCPTool, type WebMCPProps } from \"../lib/webmcp\";\nexport function Kbd({ children, className = \"\", webmcp, toolName: name, ...props }: Omit<HTMLMotionProps<\"kbd\">, \"children\"> & { children?: ReactNode } & WebMCPProps) {\n  const id = useId(), label = props[\"aria-label\"] ?? accessibleText(children);\n  const { entrance, transition, reduced } = useAingMotion();\n  useWebMCPTool(webmcp === false ? null : { name: toolName(\"read_shortcut\", id, { webmcp, toolName: name }, \"\", label), description: webmcp?.description ?? `${label} 단축키 읽기 (키 입력을 실행하지 않음)`, inputSchema: { type: \"object\", properties: {}, additionalProperties: false }, annotations: { readOnlyHint: true, untrustedContentHint: true }, execute: () => result({ shortcut: label }) });\n  return <motion.kbd {...entrance} whileHover={reduced ? undefined : { y: -2, scale: 1.05 }} transition={transition} {...props} className={`inline-flex h-6 min-w-6 items-center justify-center rounded-md border border-b-2 bg-muted px-1.5 font-mono text-[11px] text-muted-foreground ${className}`}>{children}</motion.kbd>;\n}\nexport function KbdGroup({ className = \"\", ...props }: HTMLMotionProps<\"span\">) { return <motion.span {...props} className={`inline-flex items-center gap-1 ${className}`} />; }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

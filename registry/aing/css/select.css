@@ -1,0 +1,171 @@
+@layer aing {
+  .aing-select-frame {
+    position: relative;
+    display: grid;
+    width: 100%;
+  }
+  .aing-select-frame > select {
+    grid-area: 1 / 1;
+  }
+  .aing-select-spinner {
+    pointer-events: none;
+    grid-area: 1 / 1;
+    z-index: 1;
+    margin-right: 12px;
+    align-self: center;
+    justify-self: end;
+    color: var(--muted-foreground);
+    animation: aing-select-spin 1s linear infinite;
+  }
+  @keyframes aing-select-spin {
+    to {
+      rotate: 360deg;
+    }
+  }
+  .aing-select {
+    width: 100%;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px 12px;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) - 2px);
+    background-color: var(--background);
+    color: var(--foreground);
+    line-height: 20px;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+    transition:
+      transform 160ms var(--aing-spring),
+      background-color 120ms;
+  }
+  .aing-select:active {
+    transform: scale(0.99);
+  }
+  .aing-select[data-size="sm"] {
+    padding: 8px;
+    font-size: 12px;
+  }
+  .aing-select:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  .aing-select[aria-busy="true"] {
+    opacity: 1;
+    cursor: progress;
+  }
+  .aing-select:has(option[value=""]:checked) {
+    color: var(--muted-foreground);
+  }
+  @media (hover: hover) {
+    .aing-select:not(:disabled):hover {
+      background-color: var(--muted);
+    }
+  }
+  @supports (appearance: base-select) {
+    .aing-select,
+    .aing-select::picker(select) {
+      appearance: base-select;
+    }
+    .aing-select::picker(select) {
+      margin-block: 4px;
+      padding: 4px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--background);
+      color: var(--foreground);
+      box-shadow: 0 8px 24px rgb(0 0 0 / 0.08);
+      opacity: 0;
+      transform: translateY(-4px);
+      transition:
+        opacity 150ms ease-out,
+        transform 150ms var(--aing-spring),
+        display 150ms allow-discrete,
+        overlay 150ms allow-discrete;
+    }
+    .aing-select:open::picker(select) {
+      opacity: 1;
+      transform: none;
+      transition-duration: 220ms;
+    }
+    .aing-select::picker-icon {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background: var(--muted-foreground);
+      mask: var(--aing-chevron) center / 16px no-repeat;
+      transition: rotate 160ms var(--aing-spring);
+    }
+    .aing-select:open::picker-icon {
+      rotate: 180deg;
+    }
+    .aing-select[aria-busy="true"]::picker-icon {
+      opacity: 0;
+    }
+    .aing-select option {
+      min-height: 44px;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      color: var(--foreground);
+    }
+    .aing-select option {
+      background: transparent;
+    }
+    .aing-select option:checked {
+      font-weight: 600;
+    }
+    .aing-select option:hover,
+    .aing-select option:focus-visible {
+      outline: none;
+      box-shadow: none;
+      background: var(--muted);
+    }
+    .aing-select:has(option:hover) option:focus-visible:not(:hover) {
+      background: transparent;
+    }
+    .aing-select option:disabled {
+      opacity: 0.45;
+    }
+    .aing-select option[hidden] {
+      display: none;
+    }
+    .aing-select option::checkmark {
+      content: "✓";
+      order: 1;
+      margin-left: auto;
+    }
+    .aing-select optgroup {
+      padding: 0;
+    }
+    .aing-select optgroup > legend {
+      padding: 8px 12px;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted-foreground);
+    }
+    .aing-select hr {
+      height: 1px;
+      margin: 4px 0;
+      border: 0;
+      background: var(--border);
+    }
+
+    @starting-style {
+      .aing-select:open::picker(select) {
+        opacity: 0;
+        transform: translateY(-4px);
+      }
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .aing-select,
+    .aing-select::picker(select),
+    .aing-select::picker-icon {
+      transition: none !important;
+    }
+    .aing-select-spinner {
+      animation: none;
+    }
+  }
+}

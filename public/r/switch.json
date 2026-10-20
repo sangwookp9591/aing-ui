@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch",
+  "title": "Switch",
+  "description": "손끝을 따라 움직이는 스프링. 작은 설정에 생동감을 더합니다.",
+  "dependencies": [
+    "radix-ui@1.8.1",
+    "motion@14.4.0"
+  ],
+  "registryDependencies": [
+    "http://localhost:3210/r/webmcp.json",
+    "http://localhost:3210/r/motion.json"
+  ],
+  "files": [
+    {
+      "path": "registry/aing/ui/switch.tsx",
+      "content": "\"use client\";\nimport { Switch as Primitive } from \"radix-ui\";\nimport { motion } from \"motion/react\";\nimport { useId,useState,type ComponentProps } from \"react\";\nimport { useAingMotion } from \"@/registry/aing/lib/motion\";\nimport { result,toolName,useWebMCPTool,type WebMCPProps } from \"@/registry/aing/lib/webmcp\";\nconst Root=motion.create(Primitive.Root);\nexport type SwitchProps=ComponentProps<typeof Root>&WebMCPProps;\nexport function Switch({checked,defaultChecked=false,onCheckedChange,webmcp,toolName:name,className=\"\",...props}:SwitchProps){\n const id=useId(),[internal,setInternal]=useState(defaultChecked);const value=checked??internal;const {reduced,transition}=useAingMotion();\n const change=(next:boolean)=>{setInternal(next);onCheckedChange?.(next);};const label=props[\"aria-label\"]??props.name??props.id??\"Switch\";\n useWebMCPTool(webmcp===false?null:{name:toolName(\"set\",id,{webmcp,toolName:name},\"\",label),description:webmcp?.description??`${label} 스위치를 설정합니다.`,inputSchema:{type:\"object\",properties:{checked:{type:\"boolean\"}},required:[\"checked\"],additionalProperties:false},execute:({checked:next})=>{if(props.disabled||typeof next!==\"boolean\")throw new Error(\"사용 가능한 스위치 상태를 입력하세요.\");change(next);return result({checked:next});}});\n return <Root {...props} checked={value} onCheckedChange={change} whileTap={reduced?{}:{scale:0.96}} transition={transition} className={`peer inline-flex h-[22px] w-10 shrink-0 items-center rounded-full border border-transparent bg-input p-0.5 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:opacity-45 data-[state=checked]:bg-primary ${className}`}><Primitive.Thumb asChild><motion.span initial={false} animate={{x:value?18:0}} whileTap={reduced?{}:{scaleX:1.15}} transition={transition} className=\"block size-4 rounded-full bg-background shadow-xs\"/></Primitive.Thumb></Root>;\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

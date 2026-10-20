@@ -1,0 +1,74 @@
+{
+  "name": "@aing/core",
+  "version": "0.1.0",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    "./focus": {
+      "types": "./dist/focus.d.ts",
+      "default": "./dist/focus.js"
+    },
+    "./position": {
+      "types": "./dist/position.d.ts",
+      "default": "./dist/position.js"
+    },
+    "./dismiss": {
+      "types": "./dist/dismiss.d.ts",
+      "default": "./dist/dismiss.js"
+    },
+    "./motion": {
+      "types": "./dist/motion.d.ts",
+      "default": "./dist/motion.js"
+    },
+    "./webmcp": {
+      "types": "./dist/webmcp.d.ts",
+      "default": "./dist/webmcp.js"
+    },
+    "./id": {
+      "types": "./dist/id.d.ts",
+      "default": "./dist/id.js"
+    },
+    "./live": {
+      "types": "./dist/live.d.ts",
+      "default": "./dist/live.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "default": "./dist/react.js"
+    },
+    "./invokers": {
+      "types": "./dist/invokers.d.ts",
+      "default": "./dist/invokers.js"
+    },
+    "./types": {
+      "types": "./dist/platform.d.ts"
+    },
+    "./button": {
+      "types": "./dist/button.d.ts",
+      "default": "./dist/button.js"
+    },
+    "./dialog": {
+      "types": "./dist/dialog.d.ts",
+      "default": "./dist/dialog.js"
+    },
+    "./select": {
+      "types": "./dist/select.d.ts",
+      "default": "./dist/select.js"
+    }
+  },
+  "peerDependencies": {
+    "react": ">=19"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  }
+}

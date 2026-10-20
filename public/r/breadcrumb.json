@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb",
+  "title": "Breadcrumb",
+  "description": "경로 진입과 구분자 이동. 현재 위치와 실제 링크 목록을 읽습니다.",
+  "dependencies": [
+    "motion@14.4.0",
+    "radix-ui@1.8.1",
+    "lucide-react@1.59.0"
+  ],
+  "registryDependencies": [
+    "http://localhost:3210/r/webmcp.json",
+    "http://localhost:3210/r/motion.json"
+  ],
+  "files": [
+    {
+      "path": "registry/aing/ui/breadcrumb.tsx",
+      "content": "\"use client\";\nimport { useId, useRef, useImperativeHandle, type ComponentProps } from \"react\";\nimport { Slot } from \"radix-ui\";\nimport { ChevronRight, MoreHorizontal } from \"lucide-react\";\nimport { motion } from \"motion/react\";\nimport { useAingMotion } from \"../lib/motion\";\nimport { result, toolName, useWebMCPTool, type WebMCPProps } from \"../lib/webmcp\";\nexport function Breadcrumb({ className = \"\", webmcp, toolName: name, ...props }: ComponentProps<\"nav\"> & WebMCPProps) {\n  const id = useId(), ref = useRef<HTMLElement>(null);\n  useImperativeHandle(props.ref, () => ref.current!);\n  useWebMCPTool(webmcp === false ? null : { name: toolName(\"read_breadcrumb\", id, { webmcp, toolName: name }, \"\", props[\"aria-label\"] ?? \"path\"), description: webmcp?.description ?? \"현재 경로와 링크 읽기 (이동하지 않음)\", inputSchema: { type: \"object\", properties: {}, additionalProperties: false }, annotations: { readOnlyHint: true, untrustedContentHint: true }, execute: () => result({ path: Array.from(ref.current?.querySelectorAll(\"a, [aria-current=page]\") ?? [], el => ({ label: el.textContent?.trim(), href: el.getAttribute(\"href\"), current: el.getAttribute(\"aria-current\") === \"page\" })) }) });\n  return <nav aria-label=\"breadcrumb\" {...props} ref={ref} className={className} />;\n}\nexport function BreadcrumbList({ className = \"\", ...props }: ComponentProps<\"ol\">) { return <ol {...props} className={`flex flex-wrap items-center gap-1.5 break-words text-[13px] text-muted-foreground ${className}`} />; }\nexport function BreadcrumbItem({ children, className = \"\", ...props }: ComponentProps<\"li\">) {\n  const { entrance } = useAingMotion();\n  return <li {...props} className={`inline-flex items-center gap-1.5 ${className}`}><motion.span {...entrance} className=\"inline-flex items-center gap-1.5\">{children}</motion.span></li>;\n}\nexport function BreadcrumbLink({ asChild, className = \"\", ...props }: ComponentProps<\"a\"> & { asChild?: boolean }) { const Component = asChild ? Slot.Root : \"a\"; return <Component {...props} className={`rounded-sm outline-none motion-safe:transition-colors hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/20 ${className}`} />; }\nexport function BreadcrumbPage({ className = \"\", ...props }: ComponentProps<\"span\">) { return <span role=\"link\" aria-disabled=\"true\" aria-current=\"page\" {...props} className={`font-medium text-foreground ${className}`} />; }\nexport function BreadcrumbSeparator({ children, className = \"\", ...props }: ComponentProps<\"li\">) {\n  const { transition } = useAingMotion();\n  return <li role=\"presentation\" aria-hidden=\"true\" {...props} className={className}><motion.span className=\"inline-flex\" initial={{ x: -3, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={transition}>{children ?? <ChevronRight size={13} />}</motion.span></li>;\n}\nexport function BreadcrumbEllipsis({ className = \"\", ...props }: ComponentProps<\"span\">) { return <span {...props} className={`flex size-7 items-center justify-center ${className}`}><MoreHorizontal aria-hidden size={15} /><span className=\"sr-only\">More</span></span>; }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

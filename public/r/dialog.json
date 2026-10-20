@@ -1,0 +1,228 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog",
+  "title": "Dialog",
+  "description": "배경은 잔잔해지고, 필요한 대화만 선명하게 떠오릅니다.",
+  "dependencies": [
+    "@aing/core@0.1.0"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/aing/ui/dialog.tsx",
+      "content": "\"use client\";\nimport { createDialog } from \"@aing/core/dialog\";\nexport type { DialogProps } from \"@aing/core/dialog\";\nexport const {\n  Dialog,\n  DialogTrigger,\n  DialogClose,\n  DialogPortal,\n  DialogOverlay,\n  DialogContent,\n  DialogHeader,\n  DialogBody,\n  DialogFooter,\n  DialogTitle,\n  DialogDescription,\n  AlertDialog,\n  AlertDialogTrigger,\n  AlertDialogContent,\n  AlertDialogTitle,\n  AlertDialogDescription,\n  AlertDialogAction,\n  AlertDialogCancel,\n} = createDialog({\n  content: `aing-dialog`,\n  header: `aing-dialog-header`,\n  body: `aing-dialog-body`,\n  footer: `aing-dialog-footer`,\n  title: `aing-dialog-title`,\n  description: `aing-dialog-description`,\n  x: `aing-dialog-x`,\n});\n",
+      "type": "registry:ui"
+    }
+  ],
+  "css": {
+    "@layer aing": {
+      ":root": {
+        "--background": "#fff",
+        "--foreground": "#18181b",
+        "--card": "#fff",
+        "--muted": "#f4f4f5",
+        "--muted-foreground": "#66666e",
+        "--border": "#e4e4e7",
+        "--input": "#a1a1aa",
+        "--ring": "#18181b",
+        "--primary": "#18181b",
+        "--primary-foreground": "#fafafa",
+        "--secondary": "#f4f4f5",
+        "--secondary-foreground": "#27272a",
+        "--destructive": "#b91c1c",
+        "--destructive-foreground": "#fff",
+        "--radius": "10px",
+        "--aing-backdrop": "rgb(0 0 0 / 0.4)",
+        "--aing-chevron": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'\\\n viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.75' strok\\\ne-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%\\\n3E\")",
+        "--aing-dialog-ease": "ease-out, var(--aing-spring), var(--aing-spring), ease-out, ease-out",
+        "--aing-spring": "linear(\n      0,\n      0.145,\n      0.401,\n      0.631,\n      0.796,\n      0.899,\n      0.958,\n      0.987,\n      1,\n      1.004,\n      1.004,\n      1.003,\n      1.002,\n      1.001,\n      1\n    )"
+      },
+      ".dark": {
+        "color-scheme": "dark",
+        "--aing-backdrop": "rgb(0 0 0 / 0.6)",
+        "--background": "#101012",
+        "--foreground": "#fafafa",
+        "--card": "#18181b",
+        "--muted": "#27272a",
+        "--muted-foreground": "#ababaf",
+        "--border": "#343438",
+        "--input": "#71717a",
+        "--ring": "#fafafa",
+        "--primary": "#fafafa",
+        "--primary-foreground": "#18181b",
+        "--secondary": "#27272a",
+        "--secondary-foreground": "#fafafa",
+        "--destructive": "#b91c1c"
+      },
+      ".aing-button, .aing-select, .aing-dialog": {
+        "box-sizing": "border-box",
+        "font-family": "var(--font-host, \"Host Grotesk\"), \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+        "font-size": "14px"
+      },
+      ".aing-button:focus-visible, .aing-select:focus-visible, .aing-dialog :focus-visible": {
+        "outline": "3px solid color-mix(in srgb, var(--ring) 50%, transparent)",
+        "outline-offset": "0",
+        "box-shadow": "none"
+      },
+      ".aing-button[aria-invalid=\"true\"], .aing-select[aria-invalid=\"true\"], .aing-select:user-invalid": {
+        "border-color": "var(--destructive)"
+      },
+      ".aing-dialog": {
+        "position": "fixed",
+        "inset": "0",
+        "display": "grid",
+        "gap": "24px",
+        "width": "min(448px, calc(100% - 32px))",
+        "max-height": "85dvh",
+        "margin": "auto",
+        "padding": "24px",
+        "border": "1px solid var(--border)",
+        "border-radius": "var(--radius)",
+        "background": "var(--background)",
+        "color": "var(--foreground)",
+        "box-shadow": "0 0 0 1px rgb(0 0 0 / 0.04),\n      0 20px 64px rgb(0 0 0 / 0.2)",
+        "overflow": "auto",
+        "opacity": "0",
+        "translate": "0 8px",
+        "scale": "0.97",
+        "transition": "opacity 150ms ease-out,\n      translate 150ms var(--aing-spring),\n      scale 150ms var(--aing-spring),\n      display 150ms ease-out allow-discrete,\n      overlay 150ms ease-out allow-discrete"
+      },
+      ".aing-dialog:not([open])": {
+        "display": "none"
+      },
+      ".aing-dialog[open]": {
+        "opacity": "1",
+        "translate": "0",
+        "scale": "1",
+        "transition-duration": "220ms"
+      },
+      ".aing-dialog::backdrop": {
+        "background": "var(--aing-backdrop)",
+        "backdrop-filter": "blur(4px)",
+        "opacity": "0",
+        "transition": "opacity 150ms ease-out,\n      display 150ms ease-out allow-discrete,\n      overlay 150ms ease-out allow-discrete"
+      },
+      ".aing-dialog[open]::backdrop": {
+        "opacity": "1",
+        "transition-duration": "220ms"
+      },
+      ".aing-dialog-header": {
+        "position": "sticky",
+        "top": "-24px",
+        "z-index": "1",
+        "display": "grid",
+        "gap": "8px",
+        "padding-right": "24px",
+        "background": "var(--background)"
+      },
+      ".aing-dialog-title": {
+        "margin": "0",
+        "font-size": "20px",
+        "font-weight": "600",
+        "letter-spacing": "-0.02em",
+        "line-height": "28px"
+      },
+      ".aing-dialog-description": {
+        "margin": "0",
+        "color": "var(--muted-foreground)",
+        "font-size": "13px",
+        "line-height": "20px"
+      },
+      ".aing-dialog-body": {
+        "min-height": "0",
+        "overflow": "auto",
+        "border-block": "1px solid transparent"
+      },
+      ".aing-dialog-body[data-scroll-start]": {
+        "border-top-color": "var(--border)"
+      },
+      ".aing-dialog-body[data-scroll-end]": {
+        "border-bottom-color": "var(--border)"
+      },
+      ".aing-dialog:has(> .aing-dialog-body)": {
+        "grid-template-rows": "auto minmax(0, 1fr) auto",
+        "overflow": "hidden"
+      },
+      ".aing-dialog-footer": {
+        "position": "sticky",
+        "bottom": "-24px",
+        "display": "flex",
+        "flex-wrap": "wrap",
+        "justify-content": "flex-end",
+        "gap": "8px",
+        "background": "var(--background)"
+      },
+      ".aing-dialog-footer button": {
+        "min-height": "44px"
+      },
+      ".aing-dialog-x": {
+        "z-index": "2",
+        "display": "grid",
+        "place-items": "center",
+        "position": "absolute",
+        "top": "8px",
+        "right": "8px",
+        "width": "44px",
+        "height": "44px",
+        "border": "0",
+        "border-radius": "6px",
+        "background": "transparent",
+        "color": "var(--muted-foreground)",
+        "cursor": "pointer",
+        "transition": "transform 160ms var(--aing-spring)"
+      },
+      ".aing-dialog-x:focus-visible": {
+        "outline": "3px solid color-mix(in srgb, var(--ring) 50%, transparent)",
+        "outline-offset": "0",
+        "box-shadow": "none"
+      },
+      ".aing-dialog-x:active": {
+        "transform": "scale(0.94)"
+      },
+      "@media (hover: hover)": {
+        ".aing-dialog-x:hover": {
+          "background": "var(--muted)"
+        }
+      },
+      "@media (width <= 640px)": {
+        ".aing-dialog": {
+          "width": "100%",
+          "max-width": "none",
+          "padding-bottom": "max(24px, env(safe-area-inset-bottom) + 16px)",
+          "max-height": "90dvh",
+          "margin": "auto 0 0",
+          "border-radius": "12px 12px 0 0",
+          "translate": "0 24px",
+          "scale": "1"
+        },
+        ".aing-dialog[open]": {
+          "translate": "0",
+          "scale": "1"
+        },
+        "@starting-style": {
+          ".aing-dialog[open]": {
+            "translate": "0 24px",
+            "scale": "1"
+          }
+        }
+      },
+      "@starting-style": {
+        ".aing-dialog[open]": {
+          "opacity": "0",
+          "translate": "0 8px",
+          "scale": "0.97"
+        },
+        ".aing-dialog[open]::backdrop": {
+          "opacity": "0"
+        }
+      },
+      "@media (prefers-reduced-motion: reduce)": {
+        ".aing-dialog, .aing-dialog::backdrop, .aing-dialog-x": {
+          "transition": "none !important"
+        }
+      }
+    }
+  },
+  "docs": "React >=19. Plain CSS by default; no Tailwind configuration needed. @aing/core is shared across components.",
+  "type": "registry:ui"
+}

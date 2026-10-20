@@ -1,0 +1,230 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select",
+  "title": "Select",
+  "description": "빠르게 열리고 조용히 닫히는 목록. 키보드와 타입 검색을 지원합니다.",
+  "dependencies": [
+    "@aing/core@0.1.0"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/aing/ui/select.tsx",
+      "content": "\"use client\";\nimport { createSelect } from \"@aing/core/select\";\nexport type { SelectProps } from \"@aing/core/select\";\nexport const {\n  Select,\n  SelectTrigger,\n  SelectValue,\n  SelectContent,\n  SelectGroup,\n  SelectLabel,\n  SelectItem,\n  SelectSeparator,\n  SelectScrollUpButton,\n  SelectScrollDownButton,\n} = createSelect({\n  select: `aing-select`,\n  frame: `aing-select-frame`,\n  spinner: `aing-select-spinner`,\n});\n",
+      "type": "registry:ui"
+    }
+  ],
+  "css": {
+    "@layer aing": {
+      ":root": {
+        "--background": "#fff",
+        "--foreground": "#18181b",
+        "--card": "#fff",
+        "--muted": "#f4f4f5",
+        "--muted-foreground": "#66666e",
+        "--border": "#e4e4e7",
+        "--input": "#a1a1aa",
+        "--ring": "#18181b",
+        "--primary": "#18181b",
+        "--primary-foreground": "#fafafa",
+        "--secondary": "#f4f4f5",
+        "--secondary-foreground": "#27272a",
+        "--destructive": "#b91c1c",
+        "--destructive-foreground": "#fff",
+        "--radius": "10px",
+        "--aing-backdrop": "rgb(0 0 0 / 0.4)",
+        "--aing-chevron": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'\\\n viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.75' strok\\\ne-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%\\\n3E\")",
+        "--aing-dialog-ease": "ease-out, var(--aing-spring), var(--aing-spring), ease-out, ease-out",
+        "--aing-spring": "linear(\n      0,\n      0.145,\n      0.401,\n      0.631,\n      0.796,\n      0.899,\n      0.958,\n      0.987,\n      1,\n      1.004,\n      1.004,\n      1.003,\n      1.002,\n      1.001,\n      1\n    )"
+      },
+      ".dark": {
+        "color-scheme": "dark",
+        "--aing-backdrop": "rgb(0 0 0 / 0.6)",
+        "--background": "#101012",
+        "--foreground": "#fafafa",
+        "--card": "#18181b",
+        "--muted": "#27272a",
+        "--muted-foreground": "#ababaf",
+        "--border": "#343438",
+        "--input": "#71717a",
+        "--ring": "#fafafa",
+        "--primary": "#fafafa",
+        "--primary-foreground": "#18181b",
+        "--secondary": "#27272a",
+        "--secondary-foreground": "#fafafa",
+        "--destructive": "#b91c1c"
+      },
+      ".aing-button, .aing-select, .aing-dialog": {
+        "box-sizing": "border-box",
+        "font-family": "var(--font-host, \"Host Grotesk\"), \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+        "font-size": "14px"
+      },
+      ".aing-button:focus-visible, .aing-select:focus-visible, .aing-dialog :focus-visible": {
+        "outline": "3px solid color-mix(in srgb, var(--ring) 50%, transparent)",
+        "outline-offset": "0",
+        "box-shadow": "none"
+      },
+      ".aing-button[aria-invalid=\"true\"], .aing-select[aria-invalid=\"true\"], .aing-select:user-invalid": {
+        "border-color": "var(--destructive)"
+      },
+      ".aing-select-frame": {
+        "position": "relative",
+        "display": "grid",
+        "width": "100%"
+      },
+      ".aing-select-frame > select": {
+        "grid-area": "1 / 1"
+      },
+      ".aing-select-spinner": {
+        "pointer-events": "none",
+        "grid-area": "1 / 1",
+        "z-index": "1",
+        "margin-right": "12px",
+        "align-self": "center",
+        "justify-self": "end",
+        "color": "var(--muted-foreground)",
+        "animation": "aing-select-spin 1s linear infinite"
+      },
+      "@keyframes aing-select-spin": {
+        "to": {
+          "rotate": "360deg"
+        }
+      },
+      ".aing-select": {
+        "width": "100%",
+        "min-width": "44px",
+        "min-height": "44px",
+        "padding": "8px 12px",
+        "align-items": "center",
+        "border": "1px solid var(--border)",
+        "border-radius": "calc(var(--radius) - 2px)",
+        "background-color": "var(--background)",
+        "color": "var(--foreground)",
+        "line-height": "20px",
+        "box-shadow": "0 1px 2px rgb(0 0 0 / 0.05)",
+        "transition": "transform 160ms var(--aing-spring),\n      background-color 120ms"
+      },
+      ".aing-select:active": {
+        "transform": "scale(0.99)"
+      },
+      ".aing-select[data-size=\"sm\"]": {
+        "padding": "8px",
+        "font-size": "12px"
+      },
+      ".aing-select:disabled": {
+        "opacity": "0.45",
+        "cursor": "not-allowed"
+      },
+      ".aing-select[aria-busy=\"true\"]": {
+        "opacity": "1",
+        "cursor": "progress"
+      },
+      ".aing-select:has(option[value=\"\"]:checked)": {
+        "color": "var(--muted-foreground)"
+      },
+      "@media (hover: hover)": {
+        ".aing-select:not(:disabled):hover": {
+          "background-color": "var(--muted)"
+        }
+      },
+      "@supports (appearance: base-select)": {
+        ".aing-select, .aing-select::picker(select)": {
+          "appearance": "base-select"
+        },
+        ".aing-select::picker(select)": {
+          "margin-block": "4px",
+          "padding": "4px",
+          "border": "1px solid var(--border)",
+          "border-radius": "var(--radius)",
+          "background": "var(--background)",
+          "color": "var(--foreground)",
+          "box-shadow": "0 8px 24px rgb(0 0 0 / 0.08)",
+          "opacity": "0",
+          "transform": "translateY(-4px)",
+          "transition": "opacity 150ms ease-out,\n        transform 150ms var(--aing-spring),\n        display 150ms allow-discrete,\n        overlay 150ms allow-discrete"
+        },
+        ".aing-select:open::picker(select)": {
+          "opacity": "1",
+          "transform": "none",
+          "transition-duration": "220ms"
+        },
+        ".aing-select::picker-icon": {
+          "content": "\"\"",
+          "width": "16px",
+          "height": "16px",
+          "background": "var(--muted-foreground)",
+          "mask": "var(--aing-chevron) center / 16px no-repeat",
+          "transition": "rotate 160ms var(--aing-spring)"
+        },
+        ".aing-select:open::picker-icon": {
+          "rotate": "180deg"
+        },
+        ".aing-select[aria-busy=\"true\"]::picker-icon": {
+          "opacity": "0"
+        },
+        ".aing-select option": {
+          "min-height": "44px",
+          "padding": "12px",
+          "border-radius": "6px",
+          "font-size": "14px",
+          "color": "var(--foreground)",
+          "background": "transparent"
+        },
+        ".aing-select option:checked": {
+          "font-weight": "600"
+        },
+        ".aing-select option:hover, .aing-select option:focus-visible": {
+          "outline": "none",
+          "box-shadow": "none",
+          "background": "var(--muted)"
+        },
+        ".aing-select:has(option:hover) option:focus-visible:not(:hover)": {
+          "background": "transparent"
+        },
+        ".aing-select option:disabled": {
+          "opacity": "0.45"
+        },
+        ".aing-select option[hidden]": {
+          "display": "none"
+        },
+        ".aing-select option::checkmark": {
+          "content": "\"✓\"",
+          "order": "1",
+          "margin-left": "auto"
+        },
+        ".aing-select optgroup": {
+          "padding": "0"
+        },
+        ".aing-select optgroup > legend": {
+          "padding": "8px 12px",
+          "align-items": "center",
+          "font-size": "12px",
+          "font-weight": "500",
+          "color": "var(--muted-foreground)"
+        },
+        ".aing-select hr": {
+          "height": "1px",
+          "margin": "4px 0",
+          "border": "0",
+          "background": "var(--border)"
+        },
+        "@starting-style": {
+          ".aing-select:open::picker(select)": {
+            "opacity": "0",
+            "transform": "translateY(-4px)"
+          }
+        }
+      },
+      "@media (prefers-reduced-motion: reduce)": {
+        ".aing-select, .aing-select::picker(select), .aing-select::picker-icon": {
+          "transition": "none !important"
+        },
+        ".aing-select-spinner": {
+          "animation": "none"
+        }
+      }
+    }
+  },
+  "docs": "React >=19. Plain CSS by default; no Tailwind configuration needed. @aing/core is shared across components.",
+  "type": "registry:ui"
+}

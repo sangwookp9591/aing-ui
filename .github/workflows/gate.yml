@@ -1,0 +1,44 @@
+name: M1 platform gates
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      generate_visual_baselines:
+        description: Generate Linux baseline candidates for design approval
+        type: boolean
+        default: false
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium firefox webkit
+      - name: Generate Linux visual baseline candidates (manual approval required)
+        if: github.event_name == 'workflow_dispatch' && inputs.generate_visual_baselines
+        run: |
+          pnpm core:build
+          pnpm registry:build
+          pnpm build
+          pnpm exec playwright test --grep G4 --update-snapshots
+      - name: G1–G9 including Chromium, Firefox and WebKit
+        run: pnpm gate
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m1-gate-evidence
+          path: |
+            .verify/gate
+            .verify/m1-*.json
+            .verify/m1-shots
+            .verify/m1-motion
+            .verify/playwright
+            .verify/compat/*.log
+            tests/browser/baselines

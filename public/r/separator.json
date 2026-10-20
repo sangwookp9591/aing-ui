@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "separator",
+  "title": "Separator",
+  "description": "1px 구분선이 opacity와 scale로 드러납니다. 장식용 선은 도구를 등록하지 않습니다.",
+  "dependencies": [
+    "motion@14.4.0",
+    "radix-ui@1.8.1"
+  ],
+  "registryDependencies": [
+    "http://localhost:3210/r/webmcp.json",
+    "http://localhost:3210/r/motion.json"
+  ],
+  "files": [
+    {
+      "path": "registry/aing/ui/separator.tsx",
+      "content": "\"use client\";\nimport { useId, type ComponentProps } from \"react\";\nimport { Separator as Primitive } from \"radix-ui\";\nimport { motion } from \"motion/react\";\nimport { useAingMotion } from \"../lib/motion\";\nimport { result, toolName, useWebMCPTool, type WebMCPProps } from \"../lib/webmcp\";\nexport function Separator({ orientation = \"horizontal\", decorative = true, className = \"\", webmcp, toolName: name, ...props }: ComponentProps<typeof Primitive.Root> & WebMCPProps) {\n  const id = useId(), { transition } = useAingMotion();\n  useWebMCPTool(webmcp === false || decorative ? null : { name: toolName(\"read_separator\", id, { webmcp, toolName: name }, \"\", props[\"aria-label\"] ?? \"section\"), description: webmcp?.description ?? \"구역 구분선 읽기\", inputSchema: { type: \"object\", properties: {}, additionalProperties: false }, annotations: { readOnlyHint: true }, execute: () => result({ orientation, label: props[\"aria-label\"] }) });\n  return <Primitive.Root {...props} orientation={orientation} decorative={decorative} asChild><motion.div initial={{ opacity: 0, scaleX: orientation === \"horizontal\" ? 0.6 : 1, scaleY: orientation === \"vertical\" ? 0.6 : 1 }} animate={{ opacity: 1, scaleX: 1, scaleY: 1 }} transition={transition} className={`shrink-0 origin-left bg-border data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px ${className}`} /></Primitive.Root>;\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

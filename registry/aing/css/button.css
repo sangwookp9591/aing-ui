@@ -1,0 +1,125 @@
+@layer aing {
+  .aing-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 32px;
+    height: 36px;
+    padding: 0 16px;
+    border: 1px solid transparent;
+    border-radius: calc(var(--radius) - 2px);
+    background: var(--primary);
+    color: var(--primary-foreground);
+    font-weight: 500;
+    line-height: 20px;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    touch-action: manipulation;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+    transition:
+      translate 160ms var(--aing-spring),
+      scale 160ms var(--aing-spring),
+      background-color 160ms,
+      color 160ms;
+  }
+  .aing-button::before {
+    content: "";
+    position: absolute;
+    inset: min(0px, calc((100% - 44px) / 2));
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .aing-button[aria-invalid="true"] {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 20%, transparent);
+  }
+  .aing-button-secondary {
+    background: var(--secondary);
+    color: var(--secondary-foreground);
+  }
+  .aing-button-outline {
+    border-color: var(--border);
+    background: var(--background);
+    color: var(--foreground);
+  }
+  .aing-button-ghost,
+  .aing-button-link {
+    background: transparent;
+    color: var(--foreground);
+    box-shadow: none;
+  }
+  .aing-button-link {
+    text-underline-offset: 4px;
+  }
+  .aing-button-destructive {
+    background: var(--destructive);
+    color: var(--destructive-foreground);
+  }
+  .aing-button-sm {
+    height: 32px;
+    padding-inline: 12px;
+    font-size: 12px;
+  }
+  .aing-button-lg {
+    height: 40px;
+    padding-inline: 24px;
+  }
+  .aing-button-icon {
+    width: 36px;
+    padding: 0;
+  }
+  .aing-button:disabled,
+  .aing-button[aria-disabled="true"]:not([data-loading]) {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  .aing-button[data-loading] {
+    opacity: 1;
+    cursor: progress;
+  }
+  .aing-spinner {
+    flex-shrink: 0;
+    animation: aing-spin 800ms linear infinite;
+  }
+  .aing-button:not(:disabled):not([aria-disabled="true"]):active {
+    scale: 0.97;
+  }
+  @media (hover: hover) {
+    .aing-button:not(:disabled):not([aria-disabled="true"]):hover {
+      background: color-mix(in srgb, var(--primary) 88%, var(--background));
+      translate: 0 -1px;
+    }
+    .aing-button-secondary:not(:disabled):not([aria-disabled="true"]):hover {
+      background: color-mix(in srgb, var(--secondary) 90%, var(--foreground));
+    }
+    .aing-button-outline:not(:disabled):not([aria-disabled="true"]):hover,
+    .aing-button-ghost:not(:disabled):not([aria-disabled="true"]):hover {
+      background: var(--muted);
+    }
+    .aing-button-destructive:not(:disabled):not([aria-disabled="true"]):hover {
+      background: color-mix(in srgb, var(--destructive) 88%, var(--background));
+    }
+    .aing-button-link:not(:disabled):not([aria-disabled="true"]):hover {
+      background: transparent;
+      text-decoration: underline;
+    }
+    .aing-button-ghost:not(:disabled):not([aria-disabled="true"]):hover,
+    .aing-button-link:not(:disabled):not([aria-disabled="true"]):hover {
+      translate: none;
+    }
+  }
+  @keyframes aing-spin {
+    to {
+      rotate: 360deg;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .aing-button,
+    .aing-spinner {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}

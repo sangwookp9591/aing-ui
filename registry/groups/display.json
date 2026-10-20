@@ -1,0 +1,224 @@
+{
+  "items": [
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "스프링 활성 표시와 부드러운 패널 전환. 방향키·Home·End 탐색을 지원합니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0",
+        "radix-ui@1.8.1"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "높이 스프링과 화살표 회전. 단일·다중 펼치기를 그대로 지원합니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0",
+        "radix-ui@1.8.1",
+        "lucide-react@1.59.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "작은 배지에 진입과 hover 모션을 더했습니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0",
+        "radix-ui@1.8.1"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "로드 시 fade와 스프링 hover. 그룹에 포인터를 올리면 겹침이 펼쳐집니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0",
+        "radix-ui@1.8.1"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "1px 구분선이 opacity와 scale로 드러납니다. 장식용 선은 도구를 등록하지 않습니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0",
+        "radix-ui@1.8.1"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "진입 fade와 은은한 shimmer. reduced-motion에서는 정지합니다. 접근성에서 숨긴 로딩 자리라 도구를 등록하지 않습니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "채움은 스프링으로, 미정 상태는 이동·opacity로. 보이는 진행률만 읽기 도구로 제공합니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0",
+        "radix-ui@1.8.1"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "경로 진입과 구분자 이동. 현재 위치와 실제 링크 목록을 읽습니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0",
+        "radix-ui@1.8.1",
+        "lucide-react@1.59.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "활성 표시가 이동하고 링크가 반응합니다. 기본 앵커와 제어 상태 방식을 모두 지원합니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0",
+        "radix-ui@1.8.1",
+        "lucide-react@1.59.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "헤어라인 표에 셀 진입·hover 모션. 표 영역 안에서만 가로 스크롤합니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "키캡 진입과 hover 모션. 키 입력을 실행하지 않고 설명만 읽습니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

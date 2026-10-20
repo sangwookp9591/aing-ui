@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "motion",
+  "title": "Motion presets",
+  "dependencies": [
+    "motion@14.4.0"
+  ],
+  "files": [
+    {
+      "path": "registry/aing/lib/motion.ts",
+      "content": "\"use client\";\nimport { useReducedMotion } from \"motion/react\";\nimport { useSyncExternalStore } from \"react\";\nexport const spring = { type: \"spring\", stiffness: 460, damping: 32 } as const;\nexport const easeOut = { duration: 0.22, ease: [0.16, 1, 0.3, 1] } as const;\nexport const fadeUp = { hidden: {opacity: 0, y: 6, filter: \"blur(4px)\"}, visible: {opacity: 1, y: 0, filter: \"blur(0px)\"} };\nexport const stagger = (index: number) => ({...easeOut, delay: Math.min(index, 12) * 0.045});\nlet keyboard = false;\nfunction subscribeInput(callback: () => void) {\n const key = () => {keyboard = true; callback();};\n const pointer = () => {keyboard = false; callback();};\n window.addEventListener(\"keydown\", key); window.addEventListener(\"pointerdown\", pointer);\n return () => {window.removeEventListener(\"keydown\", key); window.removeEventListener(\"pointerdown\", pointer);};\n}\nexport function useAingMotion() {\n const prefersReduced = useReducedMotion();\n const keyboardInput = useSyncExternalStore(subscribeInput, () => keyboard, () => false);\n const reduced = prefersReduced || keyboardInput;\n return {reduced, transition: reduced ? {duration: 0} : spring, entrance: {initial: fadeUp.hidden, animate: fadeUp.visible, transition: reduced ? {duration:0} : easeOut}};\n}\n",
+      "type": "registry:lib",
+      "target": "lib/motion.ts"
+    }
+  ],
+  "type": "registry:lib"
+}

@@ -1,0 +1,5 @@
+"use client";
+import { Bell, ArrowUpRight } from "lucide-react";
+import { ToastProvider, Toaster, useToast } from "@/registry/aing/ui/toast";
+function Notifications({compact}: {compact: boolean}) {const {toast} = useToast(); return <div data-overlay-demo="toast" className="grid w-full justify-items-center gap-4"><div className="flex size-11 items-center justify-center rounded-[var(--radius)] border bg-background shadow-xs"><Bell size={19}/></div><button className="rounded-[calc(var(--radius)-2px)] border bg-background px-3.5 py-2 text-[13px] font-medium shadow-xs outline-none hover:bg-muted focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/20" onClick={() => toast({title:"변경 사항을 저장했어요",description:"이제 팀원 모두가 최신 내용을 볼 수 있어요."})}>알림 보내기<ArrowUpRight size={13} className="ml-2 inline"/></button>{!compact && <p className="text-xs text-muted-foreground">여러 번 누르면 쌓이고, 옆으로 밀면 닫혀요.</p>}</div>;}
+export default function Demo({compact = false}: {compact?: boolean}) {return <ToastProvider duration={5000} toolName="show"><Notifications compact={compact}/><Toaster/></ToastProvider>;}

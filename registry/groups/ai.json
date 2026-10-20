@@ -1,0 +1,135 @@
+{
+  "items": [
+    {
+      "name": "webmcp",
+      "type": "registry:lib",
+      "title": "WebMCP",
+      "description": "공용 WebMCP 등록과 개발용 폴백",
+      "files": [
+        {
+          "path": "registry/aing/lib/webmcp.ts",
+          "type": "registry:lib",
+          "target": "lib/webmcp.ts"
+        }
+      ],
+      "dependencies": [
+        "@aing/core@0.1.0"
+      ]
+    },
+    {
+      "name": "ai-chat",
+      "type": "registry:ui",
+      "title": "ai-chat",
+      "description": "aing ai-chat WebMCP 컴포넌트",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/ai-chat.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react@1.59.0",
+        "motion@14.4.0"
+      ]
+    },
+    {
+      "name": "reaction-bar",
+      "type": "registry:ui",
+      "title": "reaction-bar",
+      "description": "aing reaction-bar WebMCP 컴포넌트",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/reaction-bar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react@1.59.0",
+        "motion@14.4.0"
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "card",
+      "description": "aing card WebMCP 컴포넌트",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react@1.59.0",
+        "motion@14.4.0"
+      ]
+    },
+    {
+      "name": "tool-call",
+      "type": "registry:ui",
+      "title": "tool-call",
+      "description": "aing tool-call WebMCP 컴포넌트",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/tool-call.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react@1.59.0",
+        "motion@14.4.0"
+      ]
+    },
+    {
+      "name": "progress-tracker",
+      "type": "registry:ui",
+      "title": "progress-tracker",
+      "description": "aing progress-tracker WebMCP 컴포넌트",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/progress-tracker.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react@1.59.0",
+        "motion@14.4.0"
+      ]
+    },
+    {
+      "name": "motion",
+      "type": "registry:lib",
+      "title": "Motion presets",
+      "dependencies": [
+        "motion@14.4.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/lib/motion.ts",
+          "type": "registry:lib",
+          "target": "lib/motion.ts"
+        }
+      ]
+    }
+  ]
+}

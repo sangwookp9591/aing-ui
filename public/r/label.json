@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "label",
+  "title": "Label",
+  "description": "작은 라벨 하나가 만드는 명확함. 누르면 연결한 입력으로 이동합니다.",
+  "dependencies": [
+    "radix-ui@1.8.1",
+    "motion@14.4.0"
+  ],
+  "registryDependencies": [
+    "http://localhost:3210/r/webmcp.json",
+    "http://localhost:3210/r/motion.json"
+  ],
+  "files": [
+    {
+      "path": "registry/aing/ui/label.tsx",
+      "content": "\"use client\";\nimport { Label as Primitive } from \"radix-ui\";\nimport { motion } from \"motion/react\";\nimport type { ComponentProps } from \"react\";\nimport { useAingMotion } from \"@/registry/aing/lib/motion\";\nimport type { WebMCPProps } from \"@/registry/aing/lib/webmcp\";\nconst MotionLabel=motion.create(Primitive.Root);\nexport function Label({className=\"\",webmcp,toolName,...props}:ComponentProps<typeof MotionLabel>&WebMCPProps){\n void webmcp;void toolName;const {entrance,reduced,transition}=useAingMotion();\n return <MotionLabel {...entrance} {...props} whileTap={reduced?{}:{scale:0.98}} transition={transition} className={`inline-flex items-center gap-2 text-[13px] font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-45 ${className}`}/>;\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

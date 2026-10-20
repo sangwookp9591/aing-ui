@@ -1,0 +1,120 @@
+export const ai = [
+  {
+    name: "ai-chat",
+    imports: "AIChat",
+    demo: () => import("@/components/demos/ai-chat"),
+    title: "AI Chat",
+    ko: "대화가 시작되는 곳",
+    description: "메시지부터 스트리밍까지. 자연스러운 대화를 담으세요.",
+    props: [
+      ["messages", "ChatMessage[]", "메시지 목록"],
+      ["onSend", "(text: string) => void | Promise<void>", "전송 콜백"],
+      ["pending?", "boolean", "답변 작성 상태"],
+      ["onStop? / onAttach?", "() => void", "스트리밍 중지 / 첨부 동작 연결"],
+    ],
+    tools: [
+      ["chat_<id>_send_message", "text: string", "메시지 전송 · consequential"],
+      [
+        "chat_<id>_read_messages",
+        "limit?: 1~100",
+        "메시지 읽기 · readOnly, untrustedContent",
+      ],
+    ],
+    code: "<AIChat messages={messages} onSend={sendMessage} pending={pending} />",
+  },
+  {
+    name: "reaction-bar",
+    imports: "ReactionBar",
+    demo: () => import("@/components/demos/reaction-bar"),
+    title: "Reaction Bar",
+    ko: "말 대신, 작은 반응",
+    description: "이모지 하나로 마음을 전하고 반응을 모으세요.",
+    props: [
+      ["reactions", "{emoji, count, active}[]", "반응 목록"],
+      ["onToggle", "(emoji: string) => void | Promise<void>", "반응 토글"],
+      ["onAdd?", "(emoji: string) => void | Promise<void>", "이모지 팝오버에서 반응 추가"],
+    ],
+    tools: [
+      [
+        "reaction_<id>_toggle",
+        "emoji: 현재 목록 enum",
+        "반응 토글 · consequential",
+      ],
+      ["reaction_<id>_list", "없음", "반응 읽기 · readOnly"],
+    ],
+    code: "<ReactionBar reactions={reactions} onToggle={toggleReaction} />",
+  },
+  {
+    name: "card",
+    imports: "Card, CardHeader, CardTitle, CardDescription, CardContent",
+    demo: () => import("@/components/demos/card"),
+    title: "Card",
+    ko: "생각을 담는 작은 틀",
+    description: "제목, 콘텐츠, 액션. 원하는 대로 조합하세요.",
+    props: [
+      ["children", "ReactNode", "합성 콘텐츠"],
+      ["spotlight?", "boolean", "커서를 따라가는 하이라이트"],
+      [
+        "actions?",
+        "{id, label, onSelect}[]",
+        "사용자와 에이전트가 공유할 작업",
+      ],
+    ],
+    tools: [
+      [
+        "card_<id>_action",
+        "action: 현재 작업 enum",
+        "actions가 있을 때 · consequential",
+      ],
+      [
+        "card_<id>_read",
+        "없음",
+        "actions가 없을 때 · readOnly, untrustedContent",
+      ],
+    ],
+    code: '<Card actions={[{ id: "save", label: "저장", onSelect: save }]} >\n  <CardHeader>\n    <CardTitle>새로운 아이디어</CardTitle>\n    <CardDescription>함께 만들어 보세요.</CardDescription>\n  </CardHeader>\n  <CardContent>내가 소유하는 컴포넌트.</CardContent>\n</Card>',
+  },
+  {
+    name: "tool-call",
+    imports: "ToolCall, useWebMCPToolLog",
+    demo: () => import("@/components/demos/tool-call"),
+    title: "Tool Call",
+    ko: "에이전트의 일을 투명하게",
+    description: "입력과 결과, 실행 상태를 한눈에 확인하세요.",
+    props: [
+      ["name", "string", "호출된 도구 이름"],
+      ["input", "unknown", "JSON 입력"],
+      ["output?", "unknown", "JSON 결과"],
+      ["status", "pending | running | success | error", "실행 상태"],
+      ["onApprove? / onDeny?", "() => void | Promise<void>", "승인 / 거절 동작"],
+      ["consequentialHint?", "boolean", "900ms 길게 누르기, 키보드 2단계 확인"],
+      ["description? / kind? / durationMs?", "string / string / number", "설명 / 도구 종류 / 소요 시간"],
+    ],
+    tools: [
+      [
+        "toolcall_get_result_<id>",
+        "없음",
+        "결과 읽기 · readOnly, untrustedContent",
+      ],
+    ],
+    code: '<ToolCall name="search_notes" input={{ query: "아이디어" }}\n  output={{ found: 3 }} status="success" />\n// 폴백 호출 목록: const logs = useWebMCPToolLog();',
+  },
+  {
+    name: "progress-tracker",
+    imports: "ProgressTracker",
+    demo: () => import("@/components/demos/progress-tracker"),
+    title: "Progress Tracker",
+    ko: "한 걸음씩, 확실하게",
+    description: "지금 어디쯤인지, 다음은 무엇인지 알려 주세요.",
+    props: [
+      ["steps", "{id, label, status, meta?}[]", "todo / active / done / error"],
+      ["orientation?", "horizontal | vertical", "배치 방향 · 기본 vertical"],
+      ["onAdvance?", "() => void | Promise<void>", "다음 단계 진행"],
+    ],
+    tools: [
+      ["progress_<id>_get_status", "없음", "단계 읽기 · readOnly"],
+      ["progress_<id>_advance", "없음", "onAdvance가 있을 때 · consequential"],
+    ],
+    code: '<ProgressTracker steps={steps} orientation="vertical" onAdvance={advance} />',
+  },
+] as const;

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton",
+  "title": "Skeleton",
+  "description": "진입 fade와 은은한 shimmer. reduced-motion에서는 정지합니다. 접근성에서 숨긴 로딩 자리라 도구를 등록하지 않습니다.",
+  "dependencies": [
+    "motion@14.4.0"
+  ],
+  "registryDependencies": [
+    "http://localhost:3210/r/webmcp.json",
+    "http://localhost:3210/r/motion.json"
+  ],
+  "files": [
+    {
+      "path": "registry/aing/ui/skeleton.tsx",
+      "content": "\"use client\";\nimport { motion, type HTMLMotionProps } from \"motion/react\";\nimport { useAingMotion } from \"../lib/motion\";\nimport type { WebMCPProps } from \"../lib/webmcp\";\nexport function Skeleton({ className = \"\", ...props }: HTMLMotionProps<\"div\"> & WebMCPProps) {\n  delete props.webmcp;\n  delete props.toolName;\n  const { reduced, transition } = useAingMotion();\n  return <motion.div aria-hidden=\"true\" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={transition} {...props} className={`relative overflow-hidden rounded-md bg-muted ${className}`}><motion.span aria-hidden className=\"pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-foreground/5 to-transparent\" initial={{ x: \"-100%\", opacity: 0 }} animate={reduced ? { x: \"-100%\", opacity: 0 } : { x: [\"-100%\", \"100%\"], opacity: [0, 1, 0] }} transition={reduced ? { duration: 0 } : { duration: 1.6, repeat: Infinity, ease: \"linear\" }} /></motion.div>;\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

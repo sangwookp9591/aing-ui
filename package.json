@@ -1,0 +1,52 @@
+{
+  "name": "aing-ui",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "dev": "pnpm core:build && next dev",
+    "build": "pnpm core:build && next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "registry:build": "tsx scripts/platform-registry.ts && tsx scripts/merge-registry.ts && shadcn build && tsx scripts/registry-origin.ts",
+    "test": "pnpm core:build && tsx --tsconfig tsconfig.test.json --test tests/*.test.ts tests/*.test.tsx",
+    "verify:browser": "tsx scripts/verify-browser.ts",
+    "verify:foundation": "tsx scripts/verify-foundation.ts",
+    "core:build": "pnpm --filter @aing/core build",
+    "size": "tsx scripts/size.ts",
+    "test:core": "tsx --tsconfig tsconfig.test.json --test --experimental-test-coverage --test-coverage-branches=100 --test-coverage-functions=100 --test-coverage-lines=100 --test-coverage-include=packages/core/src/*.ts tests/*.test.ts tests/*.test.tsx",
+    "gate": "tsx scripts/gate.ts"
+  },
+  "dependencies": {
+    "@aing/core": "workspace:*",
+    "lucide-react": "1.59.0",
+    "motion": "14.4.0",
+    "next": "16.4.2",
+    "radix-ui": "1.8.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.64.1",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "22.19.7",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@types/react-test-renderer": "19.1.0",
+    "babel-plugin-react-compiler": "1.0.0",
+    "esbuild": "0.28.2",
+    "eslint": "9.39.2",
+    "eslint-config-next": "16.4.2",
+    "happy-dom": "21.0.3",
+    "prettier": "3.7.4",
+    "react-router": "8.5.0",
+    "react-test-renderer": "19.3.1",
+    "shadcn": "4.22.1",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3",
+    "vite": "8.3.4"
+  },
+  "type": "module"
+}

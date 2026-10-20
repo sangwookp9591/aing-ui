@@ -1,0 +1,1641 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "aing-ui",
+  "homepage": "http://localhost:3210",
+  "items": [
+    {
+      "name": "webmcp",
+      "type": "registry:lib",
+      "title": "WebMCP",
+      "description": "공용 WebMCP 등록과 개발용 폴백",
+      "files": [
+        {
+          "path": "registry/aing/lib/webmcp.ts",
+          "type": "registry:lib",
+          "target": "lib/webmcp.ts"
+        }
+      ],
+      "dependencies": [
+        "@aing/core@0.1.0"
+      ]
+    },
+    {
+      "name": "ai-chat",
+      "type": "registry:ui",
+      "title": "ai-chat",
+      "description": "aing ai-chat WebMCP 컴포넌트",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/ai-chat.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react@1.59.0",
+        "motion@14.4.0"
+      ]
+    },
+    {
+      "name": "reaction-bar",
+      "type": "registry:ui",
+      "title": "reaction-bar",
+      "description": "aing reaction-bar WebMCP 컴포넌트",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/reaction-bar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react@1.59.0",
+        "motion@14.4.0"
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "card",
+      "description": "aing card WebMCP 컴포넌트",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react@1.59.0",
+        "motion@14.4.0"
+      ]
+    },
+    {
+      "name": "tool-call",
+      "type": "registry:ui",
+      "title": "tool-call",
+      "description": "aing tool-call WebMCP 컴포넌트",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/tool-call.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react@1.59.0",
+        "motion@14.4.0"
+      ]
+    },
+    {
+      "name": "progress-tracker",
+      "type": "registry:ui",
+      "title": "progress-tracker",
+      "description": "aing progress-tracker WebMCP 컴포넌트",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/progress-tracker.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react@1.59.0",
+        "motion@14.4.0"
+      ]
+    },
+    {
+      "name": "motion",
+      "type": "registry:lib",
+      "title": "Motion presets",
+      "dependencies": [
+        "motion@14.4.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/lib/motion.ts",
+          "type": "registry:lib",
+          "target": "lib/motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "누르는 순간 반응하는 버튼. 로딩과 승인할 동작까지 연결합니다.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/aing/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@aing/core@0.1.0"
+      ],
+      "css": {
+        "@layer aing": {
+          ":root": {
+            "--background": "#fff",
+            "--foreground": "#18181b",
+            "--card": "#fff",
+            "--muted": "#f4f4f5",
+            "--muted-foreground": "#66666e",
+            "--border": "#e4e4e7",
+            "--input": "#a1a1aa",
+            "--ring": "#18181b",
+            "--primary": "#18181b",
+            "--primary-foreground": "#fafafa",
+            "--secondary": "#f4f4f5",
+            "--secondary-foreground": "#27272a",
+            "--destructive": "#b91c1c",
+            "--destructive-foreground": "#fff",
+            "--radius": "10px",
+            "--aing-backdrop": "rgb(0 0 0 / 0.4)",
+            "--aing-chevron": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'\\\n viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.75' strok\\\ne-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%\\\n3E\")",
+            "--aing-dialog-ease": "ease-out, var(--aing-spring), var(--aing-spring), ease-out, ease-out",
+            "--aing-spring": "linear(\n      0,\n      0.145,\n      0.401,\n      0.631,\n      0.796,\n      0.899,\n      0.958,\n      0.987,\n      1,\n      1.004,\n      1.004,\n      1.003,\n      1.002,\n      1.001,\n      1\n    )"
+          },
+          ".dark": {
+            "color-scheme": "dark",
+            "--aing-backdrop": "rgb(0 0 0 / 0.6)",
+            "--background": "#101012",
+            "--foreground": "#fafafa",
+            "--card": "#18181b",
+            "--muted": "#27272a",
+            "--muted-foreground": "#ababaf",
+            "--border": "#343438",
+            "--input": "#71717a",
+            "--ring": "#fafafa",
+            "--primary": "#fafafa",
+            "--primary-foreground": "#18181b",
+            "--secondary": "#27272a",
+            "--secondary-foreground": "#fafafa",
+            "--destructive": "#b91c1c"
+          },
+          ".aing-button, .aing-select, .aing-dialog": {
+            "box-sizing": "border-box",
+            "font-family": "var(--font-host, \"Host Grotesk\"), \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+            "font-size": "14px"
+          },
+          ".aing-button:focus-visible, .aing-select:focus-visible, .aing-dialog :focus-visible": {
+            "outline": "3px solid color-mix(in srgb, var(--ring) 50%, transparent)",
+            "outline-offset": "0",
+            "box-shadow": "none"
+          },
+          ".aing-button[aria-invalid=\"true\"], .aing-select[aria-invalid=\"true\"], .aing-select:user-invalid": {
+            "border-color": "var(--destructive)"
+          },
+          ".aing-button": {
+            "position": "relative",
+            "display": "inline-flex",
+            "align-items": "center",
+            "justify-content": "center",
+            "gap": "8px",
+            "min-width": "32px",
+            "height": "36px",
+            "padding": "0 16px",
+            "border": "1px solid transparent",
+            "border-radius": "calc(var(--radius) - 2px)",
+            "background": "var(--primary)",
+            "color": "var(--primary-foreground)",
+            "font-weight": "500",
+            "line-height": "20px",
+            "text-decoration": "none",
+            "white-space": "nowrap",
+            "cursor": "pointer",
+            "touch-action": "manipulation",
+            "box-shadow": "0 1px 2px rgb(0 0 0 / 0.05)",
+            "transition": "translate 160ms var(--aing-spring),\n      scale 160ms var(--aing-spring),\n      background-color 160ms,\n      color 160ms"
+          },
+          ".aing-button::before": {
+            "content": "\"\"",
+            "position": "absolute",
+            "inset": "min(0px, calc((100% - 44px) / 2))",
+            "min-width": "44px",
+            "min-height": "44px"
+          },
+          ".aing-button[aria-invalid=\"true\"]": {
+            "box-shadow": "0 0 0 3px color-mix(in srgb, var(--destructive) 20%, transparent)"
+          },
+          ".aing-button-secondary": {
+            "background": "var(--secondary)",
+            "color": "var(--secondary-foreground)"
+          },
+          ".aing-button-outline": {
+            "border-color": "var(--border)",
+            "background": "var(--background)",
+            "color": "var(--foreground)"
+          },
+          ".aing-button-ghost, .aing-button-link": {
+            "background": "transparent",
+            "color": "var(--foreground)",
+            "box-shadow": "none"
+          },
+          ".aing-button-link": {
+            "text-underline-offset": "4px"
+          },
+          ".aing-button-destructive": {
+            "background": "var(--destructive)",
+            "color": "var(--destructive-foreground)"
+          },
+          ".aing-button-sm": {
+            "height": "32px",
+            "padding-inline": "12px",
+            "font-size": "12px"
+          },
+          ".aing-button-lg": {
+            "height": "40px",
+            "padding-inline": "24px"
+          },
+          ".aing-button-icon": {
+            "width": "36px",
+            "padding": "0"
+          },
+          ".aing-button:disabled, .aing-button[aria-disabled=\"true\"]:not([data-loading])": {
+            "opacity": "0.45",
+            "cursor": "not-allowed"
+          },
+          ".aing-button[data-loading]": {
+            "opacity": "1",
+            "cursor": "progress"
+          },
+          ".aing-spinner": {
+            "flex-shrink": "0",
+            "animation": "aing-spin 800ms linear infinite"
+          },
+          ".aing-button:not(:disabled):not([aria-disabled=\"true\"]):active": {
+            "scale": "0.97"
+          },
+          "@media (hover: hover)": {
+            ".aing-button:not(:disabled):not([aria-disabled=\"true\"]):hover": {
+              "background": "color-mix(in srgb, var(--primary) 88%, var(--background))",
+              "translate": "0 -1px"
+            },
+            ".aing-button-secondary:not(:disabled):not([aria-disabled=\"true\"]):hover": {
+              "background": "color-mix(in srgb, var(--secondary) 90%, var(--foreground))"
+            },
+            ".aing-button-outline:not(:disabled):not([aria-disabled=\"true\"]):hover, .aing-button-ghost:not(:disabled):not([aria-disabled=\"true\"]):hover": {
+              "background": "var(--muted)"
+            },
+            ".aing-button-destructive:not(:disabled):not([aria-disabled=\"true\"]):hover": {
+              "background": "color-mix(in srgb, var(--destructive) 88%, var(--background))"
+            },
+            ".aing-button-link:not(:disabled):not([aria-disabled=\"true\"]):hover": {
+              "background": "transparent",
+              "text-decoration": "underline"
+            },
+            ".aing-button-ghost:not(:disabled):not([aria-disabled=\"true\"]):hover, .aing-button-link:not(:disabled):not([aria-disabled=\"true\"]):hover": {
+              "translate": "none"
+            }
+          },
+          "@keyframes aing-spin": {
+            "to": {
+              "rotate": "360deg"
+            }
+          },
+          "@media (prefers-reduced-motion: reduce)": {
+            ".aing-button, .aing-spinner": {
+              "animation": "none !important",
+              "transition": "none !important"
+            }
+          }
+        }
+      },
+      "docs": "React >=19. Plain CSS by default; no Tailwind configuration needed. @aing/core is shared across components."
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "가벼운 입력과 선명한 포커스. 사람과 에이전트가 같은 값을 채웁니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "motion@14.4.0"
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "긴 생각도 편안하게. 직접 크기를 조절하고 에이전트와 함께 작성하세요.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "motion@14.4.0"
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "작은 라벨 하나가 만드는 명확함. 누르면 연결한 입력으로 이동합니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui@1.8.1",
+        "motion@14.4.0"
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "경로가 그려지는 체크와 가벼운 눌림. 중간 상태도 지원합니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui@1.8.1",
+        "motion@14.4.0"
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "명확한 선택지와 스프링 점. 방향키로 자연스럽게 탐색하세요.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui@1.8.1",
+        "motion@14.4.0"
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "손끝을 따라 움직이는 스프링. 작은 설정에 생동감을 더합니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui@1.8.1",
+        "motion@14.4.0"
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "빠르게 열리고 조용히 닫히는 목록. 키보드와 타입 검색을 지원합니다.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/aing/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@aing/core@0.1.0"
+      ],
+      "css": {
+        "@layer aing": {
+          ":root": {
+            "--background": "#fff",
+            "--foreground": "#18181b",
+            "--card": "#fff",
+            "--muted": "#f4f4f5",
+            "--muted-foreground": "#66666e",
+            "--border": "#e4e4e7",
+            "--input": "#a1a1aa",
+            "--ring": "#18181b",
+            "--primary": "#18181b",
+            "--primary-foreground": "#fafafa",
+            "--secondary": "#f4f4f5",
+            "--secondary-foreground": "#27272a",
+            "--destructive": "#b91c1c",
+            "--destructive-foreground": "#fff",
+            "--radius": "10px",
+            "--aing-backdrop": "rgb(0 0 0 / 0.4)",
+            "--aing-chevron": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'\\\n viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.75' strok\\\ne-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%\\\n3E\")",
+            "--aing-dialog-ease": "ease-out, var(--aing-spring), var(--aing-spring), ease-out, ease-out",
+            "--aing-spring": "linear(\n      0,\n      0.145,\n      0.401,\n      0.631,\n      0.796,\n      0.899,\n      0.958,\n      0.987,\n      1,\n      1.004,\n      1.004,\n      1.003,\n      1.002,\n      1.001,\n      1\n    )"
+          },
+          ".dark": {
+            "color-scheme": "dark",
+            "--aing-backdrop": "rgb(0 0 0 / 0.6)",
+            "--background": "#101012",
+            "--foreground": "#fafafa",
+            "--card": "#18181b",
+            "--muted": "#27272a",
+            "--muted-foreground": "#ababaf",
+            "--border": "#343438",
+            "--input": "#71717a",
+            "--ring": "#fafafa",
+            "--primary": "#fafafa",
+            "--primary-foreground": "#18181b",
+            "--secondary": "#27272a",
+            "--secondary-foreground": "#fafafa",
+            "--destructive": "#b91c1c"
+          },
+          ".aing-button, .aing-select, .aing-dialog": {
+            "box-sizing": "border-box",
+            "font-family": "var(--font-host, \"Host Grotesk\"), \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+            "font-size": "14px"
+          },
+          ".aing-button:focus-visible, .aing-select:focus-visible, .aing-dialog :focus-visible": {
+            "outline": "3px solid color-mix(in srgb, var(--ring) 50%, transparent)",
+            "outline-offset": "0",
+            "box-shadow": "none"
+          },
+          ".aing-button[aria-invalid=\"true\"], .aing-select[aria-invalid=\"true\"], .aing-select:user-invalid": {
+            "border-color": "var(--destructive)"
+          },
+          ".aing-select-frame": {
+            "position": "relative",
+            "display": "grid",
+            "width": "100%"
+          },
+          ".aing-select-frame > select": {
+            "grid-area": "1 / 1"
+          },
+          ".aing-select-spinner": {
+            "pointer-events": "none",
+            "grid-area": "1 / 1",
+            "z-index": "1",
+            "margin-right": "12px",
+            "align-self": "center",
+            "justify-self": "end",
+            "color": "var(--muted-foreground)",
+            "animation": "aing-select-spin 1s linear infinite"
+          },
+          "@keyframes aing-select-spin": {
+            "to": {
+              "rotate": "360deg"
+            }
+          },
+          ".aing-select": {
+            "width": "100%",
+            "min-width": "44px",
+            "min-height": "44px",
+            "padding": "8px 12px",
+            "align-items": "center",
+            "border": "1px solid var(--border)",
+            "border-radius": "calc(var(--radius) - 2px)",
+            "background-color": "var(--background)",
+            "color": "var(--foreground)",
+            "line-height": "20px",
+            "box-shadow": "0 1px 2px rgb(0 0 0 / 0.05)",
+            "transition": "transform 160ms var(--aing-spring),\n      background-color 120ms"
+          },
+          ".aing-select:active": {
+            "transform": "scale(0.99)"
+          },
+          ".aing-select[data-size=\"sm\"]": {
+            "padding": "8px",
+            "font-size": "12px"
+          },
+          ".aing-select:disabled": {
+            "opacity": "0.45",
+            "cursor": "not-allowed"
+          },
+          ".aing-select[aria-busy=\"true\"]": {
+            "opacity": "1",
+            "cursor": "progress"
+          },
+          ".aing-select:has(option[value=\"\"]:checked)": {
+            "color": "var(--muted-foreground)"
+          },
+          "@media (hover: hover)": {
+            ".aing-select:not(:disabled):hover": {
+              "background-color": "var(--muted)"
+            }
+          },
+          "@supports (appearance: base-select)": {
+            ".aing-select, .aing-select::picker(select)": {
+              "appearance": "base-select"
+            },
+            ".aing-select::picker(select)": {
+              "margin-block": "4px",
+              "padding": "4px",
+              "border": "1px solid var(--border)",
+              "border-radius": "var(--radius)",
+              "background": "var(--background)",
+              "color": "var(--foreground)",
+              "box-shadow": "0 8px 24px rgb(0 0 0 / 0.08)",
+              "opacity": "0",
+              "transform": "translateY(-4px)",
+              "transition": "opacity 150ms ease-out,\n        transform 150ms var(--aing-spring),\n        display 150ms allow-discrete,\n        overlay 150ms allow-discrete"
+            },
+            ".aing-select:open::picker(select)": {
+              "opacity": "1",
+              "transform": "none",
+              "transition-duration": "220ms"
+            },
+            ".aing-select::picker-icon": {
+              "content": "\"\"",
+              "width": "16px",
+              "height": "16px",
+              "background": "var(--muted-foreground)",
+              "mask": "var(--aing-chevron) center / 16px no-repeat",
+              "transition": "rotate 160ms var(--aing-spring)"
+            },
+            ".aing-select:open::picker-icon": {
+              "rotate": "180deg"
+            },
+            ".aing-select[aria-busy=\"true\"]::picker-icon": {
+              "opacity": "0"
+            },
+            ".aing-select option": {
+              "min-height": "44px",
+              "padding": "12px",
+              "border-radius": "6px",
+              "font-size": "14px",
+              "color": "var(--foreground)",
+              "background": "transparent"
+            },
+            ".aing-select option:checked": {
+              "font-weight": "600"
+            },
+            ".aing-select option:hover, .aing-select option:focus-visible": {
+              "outline": "none",
+              "box-shadow": "none",
+              "background": "var(--muted)"
+            },
+            ".aing-select:has(option:hover) option:focus-visible:not(:hover)": {
+              "background": "transparent"
+            },
+            ".aing-select option:disabled": {
+              "opacity": "0.45"
+            },
+            ".aing-select option[hidden]": {
+              "display": "none"
+            },
+            ".aing-select option::checkmark": {
+              "content": "\"✓\"",
+              "order": "1",
+              "margin-left": "auto"
+            },
+            ".aing-select optgroup": {
+              "padding": "0"
+            },
+            ".aing-select optgroup > legend": {
+              "padding": "8px 12px",
+              "align-items": "center",
+              "font-size": "12px",
+              "font-weight": "500",
+              "color": "var(--muted-foreground)"
+            },
+            ".aing-select hr": {
+              "height": "1px",
+              "margin": "4px 0",
+              "border": "0",
+              "background": "var(--border)"
+            },
+            "@starting-style": {
+              ".aing-select:open::picker(select)": {
+                "opacity": "0",
+                "transform": "translateY(-4px)"
+              }
+            }
+          },
+          "@media (prefers-reduced-motion: reduce)": {
+            ".aing-select, .aing-select::picker(select), .aing-select::picker-icon": {
+              "transition": "none !important"
+            },
+            ".aing-select-spinner": {
+              "animation": "none"
+            }
+          }
+        }
+      },
+      "docs": "React >=19. Plain CSS by default; no Tailwind configuration needed. @aing/core is shared across components."
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "핸들을 잡으면 값이 나타납니다. 작은 스프링으로 정밀하게 조절하세요.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui@1.8.1",
+        "motion@14.4.0"
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "검색과 선택을 한 공간에서. 방향키로 탐색하고 Enter로 결정하세요.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui@1.8.1",
+        "motion@14.4.0",
+        "lucide-react@1.59.0"
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "배경은 잔잔해지고, 필요한 대화만 선명하게 떠오릅니다.",
+      "registryDependencies": [],
+      "dependencies": [
+        "@aing/core@0.1.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        "@layer aing": {
+          ":root": {
+            "--background": "#fff",
+            "--foreground": "#18181b",
+            "--card": "#fff",
+            "--muted": "#f4f4f5",
+            "--muted-foreground": "#66666e",
+            "--border": "#e4e4e7",
+            "--input": "#a1a1aa",
+            "--ring": "#18181b",
+            "--primary": "#18181b",
+            "--primary-foreground": "#fafafa",
+            "--secondary": "#f4f4f5",
+            "--secondary-foreground": "#27272a",
+            "--destructive": "#b91c1c",
+            "--destructive-foreground": "#fff",
+            "--radius": "10px",
+            "--aing-backdrop": "rgb(0 0 0 / 0.4)",
+            "--aing-chevron": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'\\\n viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.75' strok\\\ne-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%\\\n3E\")",
+            "--aing-dialog-ease": "ease-out, var(--aing-spring), var(--aing-spring), ease-out, ease-out",
+            "--aing-spring": "linear(\n      0,\n      0.145,\n      0.401,\n      0.631,\n      0.796,\n      0.899,\n      0.958,\n      0.987,\n      1,\n      1.004,\n      1.004,\n      1.003,\n      1.002,\n      1.001,\n      1\n    )"
+          },
+          ".dark": {
+            "color-scheme": "dark",
+            "--aing-backdrop": "rgb(0 0 0 / 0.6)",
+            "--background": "#101012",
+            "--foreground": "#fafafa",
+            "--card": "#18181b",
+            "--muted": "#27272a",
+            "--muted-foreground": "#ababaf",
+            "--border": "#343438",
+            "--input": "#71717a",
+            "--ring": "#fafafa",
+            "--primary": "#fafafa",
+            "--primary-foreground": "#18181b",
+            "--secondary": "#27272a",
+            "--secondary-foreground": "#fafafa",
+            "--destructive": "#b91c1c"
+          },
+          ".aing-button, .aing-select, .aing-dialog": {
+            "box-sizing": "border-box",
+            "font-family": "var(--font-host, \"Host Grotesk\"), \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+            "font-size": "14px"
+          },
+          ".aing-button:focus-visible, .aing-select:focus-visible, .aing-dialog :focus-visible": {
+            "outline": "3px solid color-mix(in srgb, var(--ring) 50%, transparent)",
+            "outline-offset": "0",
+            "box-shadow": "none"
+          },
+          ".aing-button[aria-invalid=\"true\"], .aing-select[aria-invalid=\"true\"], .aing-select:user-invalid": {
+            "border-color": "var(--destructive)"
+          },
+          ".aing-dialog": {
+            "position": "fixed",
+            "inset": "0",
+            "display": "grid",
+            "gap": "24px",
+            "width": "min(448px, calc(100% - 32px))",
+            "max-height": "85dvh",
+            "margin": "auto",
+            "padding": "24px",
+            "border": "1px solid var(--border)",
+            "border-radius": "var(--radius)",
+            "background": "var(--background)",
+            "color": "var(--foreground)",
+            "box-shadow": "0 0 0 1px rgb(0 0 0 / 0.04),\n      0 20px 64px rgb(0 0 0 / 0.2)",
+            "overflow": "auto",
+            "opacity": "0",
+            "translate": "0 8px",
+            "scale": "0.97",
+            "transition": "opacity 150ms ease-out,\n      translate 150ms var(--aing-spring),\n      scale 150ms var(--aing-spring),\n      display 150ms ease-out allow-discrete,\n      overlay 150ms ease-out allow-discrete"
+          },
+          ".aing-dialog:not([open])": {
+            "display": "none"
+          },
+          ".aing-dialog[open]": {
+            "opacity": "1",
+            "translate": "0",
+            "scale": "1",
+            "transition-duration": "220ms"
+          },
+          ".aing-dialog::backdrop": {
+            "background": "var(--aing-backdrop)",
+            "backdrop-filter": "blur(4px)",
+            "opacity": "0",
+            "transition": "opacity 150ms ease-out,\n      display 150ms ease-out allow-discrete,\n      overlay 150ms ease-out allow-discrete"
+          },
+          ".aing-dialog[open]::backdrop": {
+            "opacity": "1",
+            "transition-duration": "220ms"
+          },
+          ".aing-dialog-header": {
+            "position": "sticky",
+            "top": "-24px",
+            "z-index": "1",
+            "display": "grid",
+            "gap": "8px",
+            "padding-right": "24px",
+            "background": "var(--background)"
+          },
+          ".aing-dialog-title": {
+            "margin": "0",
+            "font-size": "20px",
+            "font-weight": "600",
+            "letter-spacing": "-0.02em",
+            "line-height": "28px"
+          },
+          ".aing-dialog-description": {
+            "margin": "0",
+            "color": "var(--muted-foreground)",
+            "font-size": "13px",
+            "line-height": "20px"
+          },
+          ".aing-dialog-body": {
+            "min-height": "0",
+            "overflow": "auto",
+            "border-block": "1px solid transparent"
+          },
+          ".aing-dialog-body[data-scroll-start]": {
+            "border-top-color": "var(--border)"
+          },
+          ".aing-dialog-body[data-scroll-end]": {
+            "border-bottom-color": "var(--border)"
+          },
+          ".aing-dialog:has(> .aing-dialog-body)": {
+            "grid-template-rows": "auto minmax(0, 1fr) auto",
+            "overflow": "hidden"
+          },
+          ".aing-dialog-footer": {
+            "position": "sticky",
+            "bottom": "-24px",
+            "display": "flex",
+            "flex-wrap": "wrap",
+            "justify-content": "flex-end",
+            "gap": "8px",
+            "background": "var(--background)"
+          },
+          ".aing-dialog-footer button": {
+            "min-height": "44px"
+          },
+          ".aing-dialog-x": {
+            "z-index": "2",
+            "display": "grid",
+            "place-items": "center",
+            "position": "absolute",
+            "top": "8px",
+            "right": "8px",
+            "width": "44px",
+            "height": "44px",
+            "border": "0",
+            "border-radius": "6px",
+            "background": "transparent",
+            "color": "var(--muted-foreground)",
+            "cursor": "pointer",
+            "transition": "transform 160ms var(--aing-spring)"
+          },
+          ".aing-dialog-x:focus-visible": {
+            "outline": "3px solid color-mix(in srgb, var(--ring) 50%, transparent)",
+            "outline-offset": "0",
+            "box-shadow": "none"
+          },
+          ".aing-dialog-x:active": {
+            "transform": "scale(0.94)"
+          },
+          "@media (hover: hover)": {
+            ".aing-dialog-x:hover": {
+              "background": "var(--muted)"
+            }
+          },
+          "@media (width <= 640px)": {
+            ".aing-dialog": {
+              "width": "100%",
+              "max-width": "none",
+              "padding-bottom": "max(24px, env(safe-area-inset-bottom) + 16px)",
+              "max-height": "90dvh",
+              "margin": "auto 0 0",
+              "border-radius": "12px 12px 0 0",
+              "translate": "0 24px",
+              "scale": "1"
+            },
+            ".aing-dialog[open]": {
+              "translate": "0",
+              "scale": "1"
+            },
+            "@starting-style": {
+              ".aing-dialog[open]": {
+                "translate": "0 24px",
+                "scale": "1"
+              }
+            }
+          },
+          "@starting-style": {
+            ".aing-dialog[open]": {
+              "opacity": "0",
+              "translate": "0 8px",
+              "scale": "0.97"
+            },
+            ".aing-dialog[open]::backdrop": {
+              "opacity": "0"
+            }
+          },
+          "@media (prefers-reduced-motion: reduce)": {
+            ".aing-dialog, .aing-dialog::backdrop, .aing-dialog-x": {
+              "transition": "none !important"
+            }
+          }
+        }
+      },
+      "docs": "React >=19. Plain CSS by default; no Tailwind configuration needed. @aing/core is shared across components."
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "네 방향에서 부드럽게 들어오는 패널로 작업의 맥락을 이어갑니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "radix-ui@1.8.1",
+        "motion@14.4.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "키보드 탐색과 미끄러지는 강조로 작은 메뉴에도 명확한 흐름을 만듭니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "radix-ui@1.8.1",
+        "motion@14.4.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "작은 선택과 빠른 편집을 현재 위치 가까이에서 처리하세요.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "radix-ui@1.8.1",
+        "motion@14.4.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "커서와 키보드 포커스에 맞춰 나타나는 작은 안내입니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "radix-ui@1.8.1",
+        "motion@14.4.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "여러 알림은 자연스럽게 쌓이고, 스와이프 한 번으로 사라집니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "radix-ui@1.8.1",
+        "motion@14.4.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/toast.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "링크의 맥락을 작은 카드로 미리 살펴보세요.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "radix-ui@1.8.1",
+        "motion@14.4.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "스프링 활성 표시와 부드러운 패널 전환. 방향키·Home·End 탐색을 지원합니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0",
+        "radix-ui@1.8.1"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "높이 스프링과 화살표 회전. 단일·다중 펼치기를 그대로 지원합니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0",
+        "radix-ui@1.8.1",
+        "lucide-react@1.59.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "작은 배지에 진입과 hover 모션을 더했습니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0",
+        "radix-ui@1.8.1"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "로드 시 fade와 스프링 hover. 그룹에 포인터를 올리면 겹침이 펼쳐집니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0",
+        "radix-ui@1.8.1"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "1px 구분선이 opacity와 scale로 드러납니다. 장식용 선은 도구를 등록하지 않습니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0",
+        "radix-ui@1.8.1"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "진입 fade와 은은한 shimmer. reduced-motion에서는 정지합니다. 접근성에서 숨긴 로딩 자리라 도구를 등록하지 않습니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "채움은 스프링으로, 미정 상태는 이동·opacity로. 보이는 진행률만 읽기 도구로 제공합니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0",
+        "radix-ui@1.8.1"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "경로 진입과 구분자 이동. 현재 위치와 실제 링크 목록을 읽습니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0",
+        "radix-ui@1.8.1",
+        "lucide-react@1.59.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "활성 표시가 이동하고 링크가 반응합니다. 기본 앵커와 제어 상태 방식을 모두 지원합니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0",
+        "radix-ui@1.8.1",
+        "lucide-react@1.59.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "헤어라인 표에 셀 진입·hover 모션. 표 영역 안에서만 가로 스크롤합니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "키캡 진입과 hover 모션. 키 입력을 실행하지 않고 설명만 읽습니다.",
+      "registryDependencies": [
+        "http://localhost:3210/r/webmcp.json",
+        "http://localhost:3210/r/motion.json"
+      ],
+      "dependencies": [
+        "motion@14.4.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-tailwind",
+      "type": "registry:ui",
+      "title": "Button · Tailwind v4",
+      "description": "누르는 순간 반응하는 버튼. 로딩과 승인할 동작까지 연결합니다.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/aing/tailwind/button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@aing/core@0.1.0"
+      ],
+      "css": {
+        "@layer aing": {
+          ":root": {
+            "--background": "#fff",
+            "--foreground": "#18181b",
+            "--card": "#fff",
+            "--muted": "#f4f4f5",
+            "--muted-foreground": "#66666e",
+            "--border": "#e4e4e7",
+            "--input": "#a1a1aa",
+            "--ring": "#18181b",
+            "--primary": "#18181b",
+            "--primary-foreground": "#fafafa",
+            "--secondary": "#f4f4f5",
+            "--secondary-foreground": "#27272a",
+            "--destructive": "#b91c1c",
+            "--destructive-foreground": "#fff",
+            "--radius": "10px",
+            "--aing-backdrop": "rgb(0 0 0 / 0.4)",
+            "--aing-chevron": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'\\\n viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.75' strok\\\ne-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%\\\n3E\")",
+            "--aing-dialog-ease": "ease-out, var(--aing-spring), var(--aing-spring), ease-out, ease-out",
+            "--aing-spring": "linear(\n      0,\n      0.145,\n      0.401,\n      0.631,\n      0.796,\n      0.899,\n      0.958,\n      0.987,\n      1,\n      1.004,\n      1.004,\n      1.003,\n      1.002,\n      1.001,\n      1\n    )"
+          },
+          ".dark": {
+            "color-scheme": "dark",
+            "--aing-backdrop": "rgb(0 0 0 / 0.6)",
+            "--background": "#101012",
+            "--foreground": "#fafafa",
+            "--card": "#18181b",
+            "--muted": "#27272a",
+            "--muted-foreground": "#ababaf",
+            "--border": "#343438",
+            "--input": "#71717a",
+            "--ring": "#fafafa",
+            "--primary": "#fafafa",
+            "--primary-foreground": "#18181b",
+            "--secondary": "#27272a",
+            "--secondary-foreground": "#fafafa",
+            "--destructive": "#b91c1c"
+          },
+          ".aing-button, .aing-select, .aing-dialog": {
+            "box-sizing": "border-box",
+            "font-family": "var(--font-host, \"Host Grotesk\"), \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+            "font-size": "14px"
+          },
+          ".aing-button:focus-visible, .aing-select:focus-visible, .aing-dialog :focus-visible": {
+            "outline": "3px solid color-mix(in srgb, var(--ring) 50%, transparent)",
+            "outline-offset": "0",
+            "box-shadow": "none"
+          },
+          ".aing-button[aria-invalid=\"true\"], .aing-select[aria-invalid=\"true\"], .aing-select:user-invalid": {
+            "border-color": "var(--destructive)"
+          },
+          ".aing-button::before": {
+            "content": "\"\"",
+            "position": "absolute",
+            "inset": "min(0px, calc((100% - 44px) / 2))",
+            "min-width": "44px",
+            "min-height": "44px"
+          }
+        }
+      },
+      "docs": "Tailwind v4 utilities plus shared platform state and motion rules. No plugins required.",
+      "cssVars": {
+        "theme": {
+          "color-background": "var(--background)",
+          "color-foreground": "var(--foreground)",
+          "color-primary": "var(--primary)",
+          "color-primary-foreground": "var(--primary-foreground)",
+          "color-secondary": "var(--secondary)",
+          "color-secondary-foreground": "var(--secondary-foreground)",
+          "color-muted": "var(--muted)",
+          "color-muted-foreground": "var(--muted-foreground)",
+          "color-border": "var(--border)",
+          "color-input": "var(--input)",
+          "color-ring": "var(--ring)",
+          "color-destructive": "var(--destructive)",
+          "color-destructive-foreground": "var(--destructive-foreground)"
+        }
+      }
+    },
+    {
+      "name": "select-tailwind",
+      "type": "registry:ui",
+      "title": "Select · Tailwind v4",
+      "description": "빠르게 열리고 조용히 닫히는 목록. 키보드와 타입 검색을 지원합니다.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/aing/tailwind/select.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@aing/core@0.1.0"
+      ],
+      "css": {
+        "@layer aing": {
+          ":root": {
+            "--background": "#fff",
+            "--foreground": "#18181b",
+            "--card": "#fff",
+            "--muted": "#f4f4f5",
+            "--muted-foreground": "#66666e",
+            "--border": "#e4e4e7",
+            "--input": "#a1a1aa",
+            "--ring": "#18181b",
+            "--primary": "#18181b",
+            "--primary-foreground": "#fafafa",
+            "--secondary": "#f4f4f5",
+            "--secondary-foreground": "#27272a",
+            "--destructive": "#b91c1c",
+            "--destructive-foreground": "#fff",
+            "--radius": "10px",
+            "--aing-backdrop": "rgb(0 0 0 / 0.4)",
+            "--aing-chevron": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'\\\n viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.75' strok\\\ne-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%\\\n3E\")",
+            "--aing-dialog-ease": "ease-out, var(--aing-spring), var(--aing-spring), ease-out, ease-out",
+            "--aing-spring": "linear(\n      0,\n      0.145,\n      0.401,\n      0.631,\n      0.796,\n      0.899,\n      0.958,\n      0.987,\n      1,\n      1.004,\n      1.004,\n      1.003,\n      1.002,\n      1.001,\n      1\n    )"
+          },
+          ".dark": {
+            "color-scheme": "dark",
+            "--aing-backdrop": "rgb(0 0 0 / 0.6)",
+            "--background": "#101012",
+            "--foreground": "#fafafa",
+            "--card": "#18181b",
+            "--muted": "#27272a",
+            "--muted-foreground": "#ababaf",
+            "--border": "#343438",
+            "--input": "#71717a",
+            "--ring": "#fafafa",
+            "--primary": "#fafafa",
+            "--primary-foreground": "#18181b",
+            "--secondary": "#27272a",
+            "--secondary-foreground": "#fafafa",
+            "--destructive": "#b91c1c"
+          },
+          ".aing-button, .aing-select, .aing-dialog": {
+            "box-sizing": "border-box",
+            "font-family": "var(--font-host, \"Host Grotesk\"), \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+            "font-size": "14px"
+          },
+          ".aing-button:focus-visible, .aing-select:focus-visible, .aing-dialog :focus-visible": {
+            "outline": "3px solid color-mix(in srgb, var(--ring) 50%, transparent)",
+            "outline-offset": "0",
+            "box-shadow": "none"
+          },
+          ".aing-button[aria-invalid=\"true\"], .aing-select[aria-invalid=\"true\"], .aing-select:user-invalid": {
+            "border-color": "var(--destructive)"
+          },
+          "@supports (appearance: base-select)": {
+            " [data-aing-tailwind=\"select\"]::picker(select)": {
+              "appearance": "base-select"
+            },
+            "[data-aing-tailwind=\"select\"]::picker(select)": {
+              "margin-block": "4px",
+              "padding": "4px",
+              "border": "1px solid var(--border)",
+              "border-radius": "var(--radius)",
+              "background": "var(--background)",
+              "color": "var(--foreground)",
+              "box-shadow": "0 8px 24px rgb(0 0 0 / 0.08)",
+              "opacity": "0",
+              "transform": "translateY(-4px)",
+              "transition": "opacity 150ms ease-out,\n        transform 150ms var(--aing-spring),\n        display 150ms allow-discrete,\n        overlay 150ms allow-discrete"
+            },
+            "[data-aing-tailwind=\"select\"]:open::picker(select)": {
+              "opacity": "1",
+              "transform": "none",
+              "transition-duration": "220ms"
+            },
+            "[data-aing-tailwind=\"select\"]::picker-icon": {
+              "content": "\"\"",
+              "width": "16px",
+              "height": "16px",
+              "background": "var(--muted-foreground)",
+              "mask": "var(--aing-chevron) center / 16px no-repeat",
+              "transition": "rotate 160ms var(--aing-spring)"
+            },
+            "[data-aing-tailwind=\"select\"]:open::picker-icon": {
+              "rotate": "180deg"
+            },
+            "[data-aing-tailwind=\"select\"][aria-busy=\"true\"]::picker-icon": {
+              "opacity": "0"
+            },
+            "[data-aing-tailwind=\"select\"] option::checkmark": {
+              "content": "\"✓\"",
+              "order": "1",
+              "margin-left": "auto"
+            },
+            "@starting-style": {
+              "[data-aing-tailwind=\"select\"]:open::picker(select)": {
+                "opacity": "0",
+                "transform": "translateY(-4px)"
+              }
+            }
+          },
+          "@media (prefers-reduced-motion: reduce)": {
+            " [data-aing-tailwind=\"select\"]::picker(select), [data-aing-tailwind=\"select\"]::picker-icon": {
+              "transition": "none !important"
+            }
+          }
+        }
+      },
+      "docs": "Tailwind v4 utilities plus shared platform state and motion rules. No plugins required.",
+      "cssVars": {
+        "theme": {
+          "color-background": "var(--background)",
+          "color-foreground": "var(--foreground)",
+          "color-primary": "var(--primary)",
+          "color-primary-foreground": "var(--primary-foreground)",
+          "color-secondary": "var(--secondary)",
+          "color-secondary-foreground": "var(--secondary-foreground)",
+          "color-muted": "var(--muted)",
+          "color-muted-foreground": "var(--muted-foreground)",
+          "color-border": "var(--border)",
+          "color-input": "var(--input)",
+          "color-ring": "var(--ring)",
+          "color-destructive": "var(--destructive)",
+          "color-destructive-foreground": "var(--destructive-foreground)"
+        }
+      }
+    },
+    {
+      "name": "dialog-tailwind",
+      "type": "registry:ui",
+      "title": "Dialog · Tailwind v4",
+      "description": "배경은 잔잔해지고, 필요한 대화만 선명하게 떠오릅니다.",
+      "registryDependencies": [],
+      "dependencies": [
+        "@aing/core@0.1.0"
+      ],
+      "files": [
+        {
+          "path": "registry/aing/tailwind/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        "@custom-variant sheet": {
+          "@media (width <= 640px)": {
+            "@slot": {}
+          }
+        },
+        "@layer aing": {
+          ":root": {
+            "--background": "#fff",
+            "--foreground": "#18181b",
+            "--card": "#fff",
+            "--muted": "#f4f4f5",
+            "--muted-foreground": "#66666e",
+            "--border": "#e4e4e7",
+            "--input": "#a1a1aa",
+            "--ring": "#18181b",
+            "--primary": "#18181b",
+            "--primary-foreground": "#fafafa",
+            "--secondary": "#f4f4f5",
+            "--secondary-foreground": "#27272a",
+            "--destructive": "#b91c1c",
+            "--destructive-foreground": "#fff",
+            "--radius": "10px",
+            "--aing-backdrop": "rgb(0 0 0 / 0.4)",
+            "--aing-chevron": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'\\\n viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.75' strok\\\ne-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%\\\n3E\")",
+            "--aing-dialog-ease": "ease-out, var(--aing-spring), var(--aing-spring), ease-out, ease-out",
+            "--aing-spring": "linear(\n      0,\n      0.145,\n      0.401,\n      0.631,\n      0.796,\n      0.899,\n      0.958,\n      0.987,\n      1,\n      1.004,\n      1.004,\n      1.003,\n      1.002,\n      1.001,\n      1\n    )"
+          },
+          ".dark": {
+            "color-scheme": "dark",
+            "--aing-backdrop": "rgb(0 0 0 / 0.6)",
+            "--background": "#101012",
+            "--foreground": "#fafafa",
+            "--card": "#18181b",
+            "--muted": "#27272a",
+            "--muted-foreground": "#ababaf",
+            "--border": "#343438",
+            "--input": "#71717a",
+            "--ring": "#fafafa",
+            "--primary": "#fafafa",
+            "--primary-foreground": "#18181b",
+            "--secondary": "#27272a",
+            "--secondary-foreground": "#fafafa",
+            "--destructive": "#b91c1c"
+          },
+          ".aing-button, .aing-select, .aing-dialog": {
+            "box-sizing": "border-box",
+            "font-family": "var(--font-host, \"Host Grotesk\"), \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+            "font-size": "14px"
+          },
+          ".aing-button:focus-visible, .aing-select:focus-visible, .aing-dialog :focus-visible": {
+            "outline": "3px solid color-mix(in srgb, var(--ring) 50%, transparent)",
+            "outline-offset": "0",
+            "box-shadow": "none"
+          },
+          ".aing-button[aria-invalid=\"true\"], .aing-select[aria-invalid=\"true\"], .aing-select:user-invalid": {
+            "border-color": "var(--destructive)"
+          },
+          "[data-aing-tailwind=\"dialog\"]::backdrop": {
+            "background": "var(--aing-backdrop)",
+            "backdrop-filter": "blur(4px)",
+            "opacity": "0",
+            "transition": "opacity 150ms ease-out,\n      display 150ms ease-out allow-discrete,\n      overlay 150ms ease-out allow-discrete"
+          },
+          "[data-aing-tailwind=\"dialog\"][open]::backdrop": {
+            "opacity": "1",
+            "transition-duration": "220ms"
+          },
+          "@starting-style": {
+            "[data-aing-tailwind=\"dialog\"][open]": {
+              "opacity": "0",
+              "translate": "0 8px",
+              "scale": "0.97"
+            },
+            "[data-aing-tailwind=\"dialog\"][open]::backdrop": {
+              "opacity": "0"
+            }
+          },
+          "@media (width <= 640px)": {
+            "@starting-style": {
+              "[data-aing-tailwind=\"dialog\"][open]": {
+                "translate": "0 24px",
+                "scale": "1"
+              }
+            }
+          },
+          "@media (prefers-reduced-motion: reduce)": {
+            " [data-aing-tailwind=\"dialog\"]::backdrop": {
+              "transition": "none !important"
+            }
+          }
+        }
+      },
+      "docs": "Tailwind v4 utilities plus shared platform state and motion rules. No plugins required.",
+      "cssVars": {
+        "theme": {
+          "color-background": "var(--background)",
+          "color-foreground": "var(--foreground)",
+          "color-primary": "var(--primary)",
+          "color-primary-foreground": "var(--primary-foreground)",
+          "color-secondary": "var(--secondary)",
+          "color-secondary-foreground": "var(--secondary-foreground)",
+          "color-muted": "var(--muted)",
+          "color-muted-foreground": "var(--muted-foreground)",
+          "color-border": "var(--border)",
+          "color-input": "var(--input)",
+          "color-ring": "var(--ring)",
+          "color-destructive": "var(--destructive)",
+          "color-destructive-foreground": "var(--destructive-foreground)"
+        }
+      }
+    }
+  ]
+}

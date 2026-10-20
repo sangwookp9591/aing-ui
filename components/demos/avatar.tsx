@@ -1,0 +1,8 @@
+"use client";
+import { useState } from "react";
+import { Avatar, AvatarImage, AvatarFallback, AvatarGroup } from "@/registry/aing/ui/avatar";
+const portrait = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' fill='%23e4e4e7'/%3E%3Cpath d='M12 96a36 36 0 0 1 72 0' fill='%2352525b'/%3E%3Ccircle cx='48' cy='39' r='20' fill='%23a1a1aa'/%3E%3Cpath d='M27 36Q27 9 49 13Q72 13 69 36L61 25L30 32' fill='%233f3f46'/%3E%3C/svg%3E";
+export default function ComponentDemo({ compact = false }: { compact?: boolean }) {
+  const [show, setShow] = useState(true);
+  return <div className="w-full rounded-xl border bg-card p-5"><p className="font-mono text-[10px] text-muted-foreground">BETTER TOGETHER</p><h3 className="mt-2 text-[21px] font-semibold tracking-tight">Meet your team.</h3><div className="my-6 flex items-center justify-between"><AvatarGroup><Avatar aria-label="Min Kim" toolName="avatar_demo"><AvatarImage src={show ? portrait : undefined} alt="Min Kim" /><AvatarFallback>MK</AvatarFallback></Avatar><Avatar aria-label="Jin Lee" webmcp={false}><AvatarFallback>JL</AvatarFallback></Avatar><Avatar aria-label="Soo Park" webmcp={false}><AvatarFallback>SP</AvatarFallback></Avatar><Avatar aria-label="2 more members" webmcp={false}><AvatarFallback>+2</AvatarFallback></Avatar></AvatarGroup><span className="text-[12px] text-muted-foreground">5 members</span></div><p className="border-t pt-4 text-[13px] text-muted-foreground">각자의 아이디어가 만나는 곳.</p>{!compact && <button type="button" className="mt-4 rounded-md border px-3 py-2 text-[12px] hover:bg-muted" onClick={() => setShow(!show)}>Toggle image</button>}</div>;
+}

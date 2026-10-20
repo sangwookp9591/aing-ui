@@ -1,0 +1,79 @@
+@layer aing {
+  :root {
+    --background: #fff;
+    --foreground: #18181b;
+    --card: #fff;
+    --muted: #f4f4f5;
+    --muted-foreground: #66666e;
+    --border: #e4e4e7;
+    --input: #a1a1aa;
+    --ring: #18181b;
+    --primary: #18181b;
+    --primary-foreground: #fafafa;
+    --secondary: #f4f4f5;
+    --secondary-foreground: #27272a;
+    --destructive: #b91c1c;
+    --destructive-foreground: #fff;
+    --radius: 10px;
+    --aing-backdrop: rgb(0 0 0 / 0.4);
+    --aing-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'\
+ viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.75' strok\
+e-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%\
+3E");
+    --aing-dialog-ease: ease-out, var(--aing-spring), var(--aing-spring), ease-out, ease-out;
+    --aing-spring: linear(
+      0,
+      0.145,
+      0.401,
+      0.631,
+      0.796,
+      0.899,
+      0.958,
+      0.987,
+      1,
+      1.004,
+      1.004,
+      1.003,
+      1.002,
+      1.001,
+      1
+    );
+  }
+  .dark {
+    color-scheme: dark;
+    --aing-backdrop: rgb(0 0 0 / 0.6);
+    --background: #101012;
+    --foreground: #fafafa;
+    --card: #18181b;
+    --muted: #27272a;
+    --muted-foreground: #ababaf;
+    --border: #343438;
+    --input: #71717a;
+    --ring: #fafafa;
+    --primary: #fafafa;
+    --primary-foreground: #18181b;
+    --secondary: #27272a;
+    --secondary-foreground: #fafafa;
+    --destructive: #b91c1c;
+  }
+  .aing-button,
+  .aing-select,
+  .aing-dialog {
+    box-sizing: border-box;
+    font-family:
+      var(--font-host, "Host Grotesk"), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    font-size: 14px;
+  }
+  .aing-button:focus-visible,
+  .aing-select:focus-visible,
+  .aing-dialog :focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--ring) 50%, transparent);
+    outline-offset: 0;
+    box-shadow: none;
+  }
+  .aing-button[aria-invalid="true"],
+  .aing-select[aria-invalid="true"],
+  .aing-select:user-invalid {
+    border-color: var(--destructive);
+  }
+}
