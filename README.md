@@ -1,5 +1,7 @@
 # aing-ui
 
+[웹사이트](https://aing-ui.vercel.app)
+
 사람과 페이지의 AI 에이전트가 같은 동작을 사용하는 개인 컴포넌트 레지스트리입니다. UI 소스를 설치해 소유하고 공통 동작은 `@aing/core` 패키지로 공유합니다.
 
 ## 로컬 실행
@@ -17,6 +19,8 @@ pnpm dev --port 3210
 ## 가져오기
 
 Tailwind CSS v4와 shadcn이 설정된 Next/React 프로젝트에서 실행합니다.
+
+Button·Dialog·Select가 사용하는 `@aing/core`와 CLI의 npm 공개 배포는 아직 수행하지 않았습니다. 로컬 패키지를 설치한 소비 앱에서 검증했으며, 웹사이트 배포와 npm 패키지 공개는 별도로 진행합니다.
 
 ```sh
 npx shadcn@4.22.1 add http://localhost:3210/r/card.json
