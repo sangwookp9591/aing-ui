@@ -1,0 +1,74 @@
+name: CLI release artifacts
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15
+            target: aarch64-apple-darwin
+            package: aing-darwin-arm64
+          - runner: macos-15-intel
+            target: x86_64-apple-darwin
+            package: aing-darwin-x64
+          - runner: ubuntu-24.04
+            target: x86_64-unknown-linux-gnu
+            package: aing-linux-x64
+          - runner: ubuntu-24.04-arm
+            target: aarch64-unknown-linux-gnu
+            package: aing-linux-arm64
+          - runner: ubuntu-24.04
+            target: x86_64-unknown-linux-musl
+            package: aing-linux-x64-musl
+          - runner: ubuntu-24.04-arm
+            target: aarch64-unknown-linux-musl
+            package: aing-linux-arm64-musl
+          - runner: windows-2025
+            target: x86_64-pc-windows-msvc
+            package: aing-win32-x64
+          - runner: windows-2025
+            target: aarch64-pc-windows-msvc
+            package: aing-win32-arm64
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Set up pinned Rust
+        shell: bash
+        run: |
+          rustup toolchain install 1.99.1 --profile minimal --component rustfmt --component clippy
+          rustup target add --toolchain 1.99.1 ${{ matrix.target }}
+      - name: Install musl linker
+        if: contains(matrix.target, 'musl')
+        run: sudo apt-get update && sudo apt-get install -y musl-tools
+      - name: Format and test
+        shell: bash
+        run: |
+          cargo fmt --manifest-path cli/Cargo.toml --check
+          cargo test --manifest-path cli/Cargo.toml --locked
+          cargo clippy --manifest-path cli/Cargo.toml --locked --all-targets -- -D warnings
+          node --test npm/wrapper.test.cjs
+      - name: Build native package
+        shell: bash
+        run: |
+          cargo build --manifest-path cli/Cargo.toml --release --locked --target ${{ matrix.target }}
+          mkdir -p npm/${{ matrix.package }}/bin
+          if [[ '${{ matrix.target }}' == *windows* ]]; then
+            cp cli/target/${{ matrix.target }}/release/aing.exe npm/${{ matrix.package }}/bin/aing.exe
+          else
+            cp cli/target/${{ matrix.target }}/release/aing npm/${{ matrix.package }}/bin/aing
+            chmod +x npm/${{ matrix.package }}/bin/aing
+          fi
+          mkdir -p .verify/cli-pack
+          npm pack ./npm/${{ matrix.package }} --pack-destination .verify/cli-pack
+          npm pack ./npm/aing --pack-destination .verify/cli-pack
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.package }}
+          path: .verify/cli-pack/*.tgz

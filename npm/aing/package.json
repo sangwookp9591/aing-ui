@@ -1,0 +1,21 @@
+{
+  "name": "aing",
+  "version": "0.1.0",
+  "description": "Own your React components: fast native installer, three-way sync and MCP server",
+  "license": "MIT",
+  "bin": { "aing": "bin/aing.cjs" },
+  "files": ["bin", "README.md"],
+  "engines": { "node": ">=22.22" },
+  "dependencies": { "esbuild": "0.28.2" },
+  "optionalDependencies": {
+    "aing-darwin-arm64": "0.1.0",
+    "aing-darwin-x64": "0.1.0",
+    "aing-linux-x64": "0.1.0",
+    "aing-linux-arm64": "0.1.0",
+    "aing-linux-x64-musl": "0.1.0",
+    "aing-linux-arm64-musl": "0.1.0",
+    "aing-win32-x64": "0.1.0",
+    "aing-win32-arm64": "0.1.0"
+  },
+  "scripts": { "test": "node --test ../wrapper.test.cjs" }
+}

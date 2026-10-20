@@ -1,0 +1,140 @@
+[
+  {
+    "name": "focus",
+    "gzip": 853,
+    "budget": 1000,
+    "passed": true
+  },
+  {
+    "name": "position",
+    "gzip": 566,
+    "budget": 1500,
+    "passed": true
+  },
+  {
+    "name": "dismiss",
+    "gzip": 383,
+    "budget": 600,
+    "passed": true
+  },
+  {
+    "name": "motion",
+    "gzip": 613,
+    "budget": 1200,
+    "passed": true
+  },
+  {
+    "name": "webmcp",
+    "gzip": 1498,
+    "budget": 1500,
+    "passed": true
+  },
+  {
+    "name": "id",
+    "gzip": 92,
+    "budget": 150,
+    "passed": true
+  },
+  {
+    "name": "live",
+    "gzip": 118,
+    "budget": 150,
+    "passed": true
+  },
+  {
+    "name": "core total (sum)",
+    "gzip": 4123,
+    "budget": 6000,
+    "passed": true
+  },
+  {
+    "name": "button own (15 lines)",
+    "gzip": 859,
+    "budget": 1000,
+    "passed": true
+  },
+  {
+    "name": "button with core",
+    "gzip": 2423,
+    "budget": null,
+    "passed": null
+  },
+  {
+    "name": "dialog own (42 lines)",
+    "gzip": 1525,
+    "budget": 3000,
+    "passed": true
+  },
+  {
+    "name": "dialog with core",
+    "gzip": 3243,
+    "budget": null,
+    "passed": null
+  },
+  {
+    "name": "select own (41 lines)",
+    "gzip": 1437,
+    "budget": 6000,
+    "passed": true
+  },
+  {
+    "name": "select with core",
+    "gzip": 2593,
+    "budget": null,
+    "passed": null
+  },
+  {
+    "name": "button-tailwind own (15 lines)",
+    "gzip": 946,
+    "budget": 1000,
+    "passed": true
+  },
+  {
+    "name": "button-tailwind with core",
+    "gzip": 2514,
+    "budget": null,
+    "passed": null
+  },
+  {
+    "name": "dialog-tailwind own (42 lines)",
+    "gzip": 1538,
+    "budget": 3000,
+    "passed": true
+  },
+  {
+    "name": "dialog-tailwind with core",
+    "gzip": 3261,
+    "budget": null,
+    "passed": null
+  },
+  {
+    "name": "select-tailwind own (41 lines)",
+    "gzip": 1450,
+    "budget": 6000,
+    "passed": true
+  },
+  {
+    "name": "select-tailwind with core",
+    "gzip": 2605,
+    "budget": null,
+    "passed": null
+  },
+  {
+    "name": "button CSS + tokens",
+    "gzip": 1269,
+    "budget": null,
+    "passed": null
+  },
+  {
+    "name": "dialog CSS + tokens",
+    "gzip": 1106,
+    "budget": null,
+    "passed": null
+  },
+  {
+    "name": "select CSS + tokens",
+    "gzip": 1096,
+    "budget": null,
+    "passed": null
+  }
+]

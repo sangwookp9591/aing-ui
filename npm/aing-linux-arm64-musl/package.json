@@ -1,0 +1,18 @@
+{
+  "name": "aing-linux-arm64-musl",
+  "version": "0.1.0",
+  "description": "Native aing CLI for linux arm64 (musl)",
+  "license": "MIT",
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "arm64"
+  ],
+  "files": [
+    "bin"
+  ],
+  "libc": [
+    "musl"
+  ]
+}
